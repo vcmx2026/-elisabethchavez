@@ -345,3 +345,12 @@ details.reveal > div{padding-top:18px}
   .path li{display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:16px;padding:0}
   .path .n{grid-row:span 2;margin:0}
 }
+
+.books.rows .book .tagline{font-family:var(--serif);font-size:22px;line-height:1.35;color:var(--ink);margin:2px 0 0;max-width:620px}
+.books.rows .book .hook{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--blue);margin:4px 0 2px;max-width:620px}
+.syn-more summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--terra);font-size:15px}
+.syn-more summary::-webkit-details-marker{display:none}
+.syn-more summary::after{content:"+";font-size:18px;transition:transform .25s}
+.syn-more[open] summary::after{transform:rotate(45deg)}
+.syn-more > div{padding-top:10px;display:flex;flex-direction:column;gap:12px}
+.syn-more .meta{margin:0}
