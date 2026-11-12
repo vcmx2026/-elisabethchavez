@@ -101,6 +101,10 @@ nav a:hover{background:var(--sand)}
 .book .actions{display:flex;flex-wrap:wrap;gap:8px}
 .book .actions a{font-size:13px;font-weight:700;padding:8px 13px;border-radius:999px;border:1.5px solid var(--line);text-decoration:none;color:var(--ink);background:var(--paper)}
 .book .actions a.main{border-color:var(--terra);color:var(--terra)}
+.book .actions a.store{display:inline-flex;align-items:center;gap:6px}
+.book .actions a.store svg{width:14px;height:14px}
+.book .actions a.pending{border-style:dashed;color:var(--muted)}
+.book .actions .lbl{flex-basis:100%;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
 .todo{background:#FCEFD9;border-radius:4px;padding:0 3px}
 
 /* about */
@@ -232,31 +236,31 @@ footer a{color:var(--muted)}
         <div class="cover photo"><img src="img/camalote.jpg" alt="Portada de Las hijas de El Camalote" width="400" height="609" loading="lazy"></div>
         <div class="t">Las hijas de El Camalote</div>
         <p class="meta"><span class="todo">[Sinopsis corta]</span></p>
-        <div class="actions"><a class="main" href="#contacto" data-book="Las hijas de El Camalote" data-en="Order">Pedir</a></div>
+        <div class="actions" data-buy="camalote-es"><a class="main" href="#contacto" data-book="Las hijas de El Camalote" data-en="Order from the author">Pedir a la autora</a></div>
       </article>
       <article class="book">
         <div class="cover photo"><img src="img/camalote.jpg" alt="Portada de Las hijas de El Camalote, también para The Camalote's Daughters" width="400" height="609" loading="lazy"></div>
         <div class="t">The Camalote's Daughters</div>
         <p class="meta"><span data-en="English edition.">Edición en inglés.</span> <span class="todo">[Sinopsis corta]</span></p>
-        <div class="actions"><a class="main" href="#contacto" data-book="The Camalote's Daughters" data-en="Order">Pedir</a></div>
+        <div class="actions" data-buy="camalote-en"><a class="main" href="#contacto" data-book="The Camalote's Daughters" data-en="Order from the author">Pedir a la autora</a></div>
       </article>
       <article class="book">
         <div class="cover photo"><img src="img/mechuacan.jpg" alt="Portada de Mechuacán, sus mujeres y el silencio" width="400" height="601" loading="lazy"></div>
         <div class="t">Mechuacán, sus mujeres y el silencio</div>
         <p class="meta"><span class="todo">[Sinopsis corta]</span></p>
-        <div class="actions"><a class="main" href="#contacto" data-book="Mechuacán, sus mujeres y el silencio" data-en="Order">Pedir</a></div>
+        <div class="actions" data-buy="mechuacan"><a class="main" href="#contacto" data-book="Mechuacán, sus mujeres y el silencio" data-en="Order from the author">Pedir a la autora</a></div>
       </article>
       <article class="book">
         <div class="cover c4"><small>Elisabeth Chávez Rivera</small><h3>Emprende y fracasa como niña</h3><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M50 10l10 22 24 3-18 16 5 24-21-12-21 12 5-24-18-16 24-3z"/></svg></div>
         <div class="t">Emprende y fracasa como niña</div>
         <p class="meta"><span class="todo">[Sinopsis corta]</span></p>
-        <div class="actions"><a class="main" href="#contacto" data-book="Emprende y fracasa como niña" data-en="Order">Pedir</a></div>
+        <div class="actions" data-buy="emprende"><a class="main" href="#contacto" data-book="Emprende y fracasa como niña" data-en="Order from the author">Pedir a la autora</a></div>
       </article>
       <article class="book">
         <div class="cover c3"><small>Elisabeth Chávez Rivera</small><h3><span class="todo" style="background:rgba(255,255,255,.2)">[Quinto libro]</span></h3></div>
         <div class="t"><span class="todo">[Título del quinto libro]</span></div>
         <p class="meta"><span class="todo">[Sinopsis corta]</span></p>
-        <div class="actions"><a class="main" href="#contacto" data-en="Order">Pedir</a></div>
+        <div class="actions" data-buy="libro5"><a class="main" href="#contacto" data-en="Order from the author">Pedir a la autora</a></div>
       </article>
     </div>
   </div>
@@ -415,6 +419,29 @@ footer a{color:var(--muted)}
     box.querySelector('.when').appendChild(first.querySelector('div:not(.d) p').cloneNode(true));}
   else box.closest('.next').hidden=true;
 
+
+  // where to buy each book: paste each store's link here ("" = link still pending)
+  var BUY={
+    'camalote-es':{amazon:'',mercadolibre:'',tiktok:''},
+    'camalote-en':{amazon:'',mercadolibre:'',tiktok:''},
+    'mechuacan':  {amazon:'',mercadolibre:'',tiktok:''},
+    'emprende':   {amazon:'',mercadolibre:'',tiktok:''},
+    'libro5':     {amazon:'',mercadolibre:'',tiktok:''}
+  };
+  var STORES=[['amazon','Amazon'],['mercadolibre','Mercado Libre'],['tiktok','TikTok Shop']];
+  var BAG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>';
+  document.querySelectorAll('[data-buy]').forEach(function(box){
+    var links=BUY[box.dataset.buy]||{}, first=box.firstChild;
+    var lbl=document.createElement('span'); lbl.className='lbl'; lbl.textContent='Cómpralo en'; lbl.setAttribute('data-en','Buy it on');
+    box.insertBefore(lbl,first);
+    STORES.forEach(function(s){
+      var a=document.createElement('a'), url=links[s[0]];
+      a.className='store'+(url?'':' pending'); a.innerHTML=BAG+'<span>'+s[1]+'</span>';
+      if(url){a.href=url;a.target='_blank';a.rel='noopener';}
+      else{a.href='#contacto';a.title='Enlace pendiente';a.dataset.book=box.querySelector('[data-book]')?box.querySelector('[data-book]').dataset.book:'';}
+      box.insertBefore(a,first);
+    });
+  });
   // language toggle: Spanish is in the page, English in data-en
   var KEY='ec-lang', lang='es';
   try{ lang=new URLSearchParams(location.search).get('l')||localStorage.getItem(KEY)||((navigator.language||'').slice(0,2)==='en'?'en':'es'); }catch(e){}
