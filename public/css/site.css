@@ -266,3 +266,22 @@ details.reveal > div{padding-top:18px}
 .agenda-page details.reveal{border-color:rgba(255,255,255,.2)}
 .agenda-page details.reveal summary{color:#F3EFE6}
 .agenda-page .past-title{margin-top:56px}
+
+.stores-band{background:var(--card);border-top:1px solid var(--line);padding:88px 0}
+.map-wrap{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.7fr);gap:40px;align-items:center;margin-top:36px}
+.mx-map{width:100%;height:auto;overflow:visible}
+.mx-map .land{fill:#EFE4D6;stroke:#C9B79F;stroke-width:1.2}
+.mx-map .halo{fill:var(--blue);opacity:.22;animation:pulse 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.mx-map .dot{fill:var(--terra);stroke:#fff;stroke-width:3}
+.mx-map .lead{stroke:var(--terra);stroke-width:1.2;opacity:.55}
+.mx-map .pl{font-family:var(--serif);font-size:30px;font-weight:600;fill:var(--ink)}
+.mx-map .ps{font-family:var(--sans);font-size:18px;fill:var(--muted)}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.22}50%{transform:scale(1.5);opacity:.08}}
+@media (prefers-reduced-motion:reduce){.mx-map .halo{animation:none}}
+.cities{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.city{padding:16px 0;border-bottom:1px solid var(--line)}
+.city .st{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.city h3{font-size:26px;margin:2px 0}
+.city p{margin:0;color:var(--muted)}
+.city.other p{color:var(--ink);font-family:var(--serif);font-size:20px;font-weight:600;margin-top:4px}
+@media (max-width:880px){.map-wrap{grid-template-columns:1fr;gap:24px}.mx-map .pl{font-size:40px}.mx-map .ps{font-size:26px}}
