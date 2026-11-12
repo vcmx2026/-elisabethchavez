@@ -87,7 +87,8 @@ nav a:hover{background:var(--sand)}
 
 /* books */
 #libros{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.books{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:22px;margin-top:40px}
+.books{display:grid;grid-template-columns:repeat(3,minmax(0,300px));justify-content:space-between;gap:40px;margin-top:40px}
+@media (max-width:900px){.books{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}}
 @media (max-width:560px){.books{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.cover{padding:14px 12px}.cover h3{font-size:19px}.book .t{font-size:19px}}
 .book{display:flex;flex-direction:column;gap:12px}
 .cover{aspect-ratio:2/3;border-radius:6px 14px 14px 6px;padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:inset 6px 0 0 rgba(0,0,0,.14),0 22px 30px -22px rgba(43,38,34,.6);position:relative;overflow:hidden}
@@ -252,12 +253,6 @@ footer a{color:var(--muted)}
         <div class="t">Emprende y fracasa como niña</div>
         <p class="meta" data-en="An autobiographical story about women's entrepreneurship, failure and the ability to reinvent yourself. With an honest narrative that doesn't romanticize success, Elisabeth shares her experience as a businesswoman and mother, from building successful businesses to facing a scam. The book combines personal experiences, reflections and practical tools, including a guide and checklists to start your own business. An invitation to question success, lose the fear of failure and discover that starting over is also moving forward.">Una historia autobiográfica sobre el emprendimiento femenino, el fracaso y la capacidad de reinventarse. Con una narrativa honesta y sin romantizar el éxito, Elisabeth comparte su experiencia como empresaria y madre, desde la creación de negocios exitosos hasta enfrentar una estafa. La obra combina vivencias personales, reflexiones y herramientas prácticas, incluyendo una guía y listas de verificación para comenzar a emprender. Una invitación a cuestionar el éxito, perder el miedo al fracaso y descubrir que empezar de nuevo también es avanzar.</p>
         <div class="actions" data-buy="emprende"><a class="main" href="#contacto" data-book="Emprende y fracasa como niña" data-en="Order from the author">Pedir a la autora</a></div>
-      </article>
-      <article class="book">
-        <div class="cover c3"><small>Elisabeth Chávez Rivera</small><h3><span class="todo" style="background:rgba(255,255,255,.2)">[Quinto libro]</span></h3></div>
-        <div class="t"><span class="todo">[Título del quinto libro]</span></div>
-        <p class="meta"><span class="todo">[Sinopsis corta]</span></p>
-        <div class="actions" data-buy="libro5"><a class="main" href="#contacto" data-en="Order from the author">Pedir a la autora</a></div>
       </article>
     </div>
   </div>
@@ -427,7 +422,6 @@ footer a{color:var(--muted)}
     'camalote-es':{amazon:'',mercadolibre:'',tiktok:'', en:{title:"The Camalote's Daughters",amazon:'',mercadolibre:'',tiktok:''}},
     'mechuacan':  {amazon:'',mercadolibre:'',tiktok:'', en:{title:'Michoacán: The Women Behind the Silence',amazon:'',mercadolibre:'',tiktok:''}},
     'emprende':   {amazon:'',mercadolibre:'',tiktok:''},
-    'libro5':     {amazon:'',mercadolibre:'',tiktok:''}
   };
   var STORES=[['amazon','Amazon'],['mercadolibre','Mercado Libre'],['tiktok','TikTok Shop']];
   var BAG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>';
