@@ -240,8 +240,9 @@ footer a{color:var(--muted)}
         <div class="actions" data-buy="camalote-es"><a class="main" href="#contacto" data-book="Las hijas de El Camalote" data-en="Order from the author">Pedir a la autora</a></div>
       </article>
       <article class="book">
-        <div class="cover photo"><img src="img/mechuacan.jpg" alt="Portada de Mechuacán, sus mujeres y el silencio" width="400" height="601" loading="lazy"></div>
+        <div class="cover photo"><img src="img/mechuacan.jpg" alt="Portada de Michoacán: The Women Behind the Silence, edición en inglés de Mechuacán, sus mujeres y el silencio" width="400" height="601" loading="lazy"></div>
         <div class="t">Mechuacán, sus mujeres y el silencio</div>
+        <p class="meta" style="margin-top:-8px"><em data-en="Also in English: Michoacán: The Women Behind the Silence">También en inglés: Michoacán: The Women Behind the Silence</em></p>
         <p class="meta" data-en="The author recovers her own family history and that of generations marked by displacement and the structures of silence in rural communities. The book stands as an act of historical repair, using words to name what remained hidden.">La autora rescata su propia historia familiar y la de generaciones marcadas por el desplazamiento y las estructuras de silencio de las comunidades rurales. La obra se erige como un acto de reparación histórica, utilizando la palabra para nombrar aquello que permaneció oculto.</p>
         <div class="actions" data-buy="mechuacan"><a class="main" href="#contacto" data-book="Mechuacán, sus mujeres y el silencio" data-en="Order from the author">Pedir a la autora</a></div>
       </article>
@@ -418,8 +419,8 @@ footer a{color:var(--muted)}
   // where to buy each book: paste each store's link here ("" = link still pending)
   var BUY={
     // en: links for the English edition (The Camalote's Daughters)
-    'camalote-es':{amazon:'',mercadolibre:'',tiktok:'', en:{amazon:'',mercadolibre:'',tiktok:''}},
-    'mechuacan':  {amazon:'',mercadolibre:'',tiktok:''},
+    'camalote-es':{amazon:'',mercadolibre:'',tiktok:'', en:{title:"The Camalote's Daughters",amazon:'',mercadolibre:'',tiktok:''}},
+    'mechuacan':  {amazon:'',mercadolibre:'',tiktok:'', en:{title:'Michoacán: The Women Behind the Silence',amazon:'',mercadolibre:'',tiktok:''}},
     'emprende':   {amazon:'',mercadolibre:'',tiktok:''},
     'libro5':     {amazon:'',mercadolibre:'',tiktok:''}
   };
@@ -443,7 +444,7 @@ footer a{color:var(--muted)}
         var a=document.createElement('a'), url=links.en[s[0]];
         a.className='store'+(url?'':' pending'); a.innerHTML=BAG+'<span>'+s[1]+'</span>';
         if(url){a.href=url;a.target='_blank';a.rel='noopener';}
-        else{a.href='#contacto';a.title='Enlace pendiente';a.dataset.book="The Camalote's Daughters";}
+        else{a.href='#contacto';a.title='Enlace pendiente';a.dataset.book=links.en.title;}
         box.appendChild(a);
       });
     }
