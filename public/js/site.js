@@ -34,8 +34,8 @@
 
   // where to buy each book: paste each store's link here ("" = link still pending)
   var BUY={
-    'camalote-es':{amazon:'',mercadolibre:'',tiktok:'', en:{title:"The Camalote's Daughters",amazon:'',mercadolibre:'',tiktok:''}},
-    'mechuacan':  {amazon:'',mercadolibre:'',tiktok:'', en:{title:'Michoacán: The Women Behind the Silence',amazon:'',mercadolibre:'',tiktok:''}},
+    'camalote-es':{amazon:'https://www.amazon.com.mx/dp/B0GMJ259QH',mercadolibre:'',tiktok:'', en:{title:"The Camalote's Daughters",amazon:'',mercadolibre:'',tiktok:''}},
+    'mechuacan':  {amazon:'',mercadolibre:'',tiktok:'', en:{title:'Michoacán: The Women Behind the Silence',amazon:'https://www.amazon.com/dp/B0G4R51GSW',mercadolibre:'',tiktok:''}},
     'emprende':   {amazon:'',mercadolibre:'',tiktok:''}
   };
   var STORES=[['amazon','Amazon'],['mercadolibre','Mercado Libre'],['tiktok','TikTok Shop']];
