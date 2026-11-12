@@ -72,6 +72,8 @@ nav a:hover{background:var(--sand)}
 @media (max-width:880px){.hero .bigmark{width:340px;right:-120px;top:auto;bottom:-40px;opacity:.35}}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}
 .hero h1{font-size:clamp(48px,7.5vw,92px);letter-spacing:-.01em}
+.hero h1.firma{margin:0}
+.hero h1.firma img{width:100%;max-width:640px;height:auto;margin-left:-8px}
 .hero h1 em{font-style:italic;color:var(--blue);font-weight:500}
 .hero p.sub{font-size:20px;color:var(--muted);max-width:560px;margin:22px 0 30px}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
@@ -215,7 +217,7 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div>
       <p class="eyebrow" data-en="Writer · Businesswoman · Cultural promoter">Escritora · Empresaria · Promotora cultural</p>
-      <h1>Elisabeth <em>Chávez Rivera</em></h1>
+      <h1 class="firma"><img src="img/firma.svg" alt="Elisabeth Chávez Rivera, autora" width="1218" height="260"></h1>
       <p class="sub" data-en="Stories of memory, migration and women who start over. Her voice comes from experience: building, going through loss and finding the stories that deserve to be told.">Historias de memoria, migración y mujeres que vuelven a empezar. Una voz que nace de la experiencia: construir, atravesar pérdidas y encontrar las historias que merecen ser contadas.</p>
       <div class="ctas">
         <a class="btn solid" href="#libros" data-en="See the books">Ver los libros</a>
