@@ -354,3 +354,15 @@ details.reveal > div{padding-top:18px}
 .syn-more[open] summary::after{transform:rotate(45deg)}
 .syn-more > div{padding-top:10px;display:flex;flex-direction:column;gap:12px}
 .syn-more .meta{margin:0}
+
+.ficha{margin-top:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;max-width:620px}
+.ficha summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.ficha summary::-webkit-details-marker{display:none}
+.ficha summary::after{content:"+";font-size:18px;letter-spacing:0;transition:transform .25s}
+.ficha[open] summary::after{transform:rotate(45deg)}
+.ficha dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin:10px 0 0}
+.ficha dl div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:10px;padding:8px 0;border-top:1px dashed var(--line);font-size:14.5px}
+.ficha dt{color:var(--muted)}
+.ficha dd{margin:0;color:var(--ink);font-weight:500}
+.ficha dd.tbd{color:#A39788;font-style:italic;font-weight:400}
+@media (max-width:640px){.ficha dl{grid-template-columns:1fr}}
