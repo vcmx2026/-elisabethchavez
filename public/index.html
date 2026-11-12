@@ -235,14 +235,9 @@ footer a{color:var(--muted)}
       <article class="book">
         <div class="cover photo"><img src="img/camalote.jpg" alt="Portada de Las hijas de El Camalote" width="400" height="609" loading="lazy"></div>
         <div class="t">Las hijas de El Camalote</div>
+        <p class="meta" style="margin-top:-8px"><em data-en="Also in English: The Camalote's Daughters">También en inglés: The Camalote's Daughters</em></p>
         <p class="meta" data-en="It expands the world of <em>Mechuacán</em> through a choral novel portraying the symbolic and emotional founding of the author's family hometown in Michoacán's Tierra Caliente. In intense, visual prose, it weaves together the voices of twenty-three women who survive amid love, faith, loss and the realities of drug trafficking, offering a poetic and socially powerful perspective.">Expande el universo de <em>Mechuacán</em> mediante una novela coral que retrata la fundación simbólica y emocional del pueblo de origen de la familia de la autora, en la Tierra Caliente de Michoacán. Con una prosa intensa y visual, entrelaza las voces de veintitrés mujeres que sobreviven entre el amor, la fe, la pérdida y las realidades del narcotráfico, ofreciendo una perspectiva poética y socialmente poderosa.</p>
         <div class="actions" data-buy="camalote-es"><a class="main" href="#contacto" data-book="Las hijas de El Camalote" data-en="Order from the author">Pedir a la autora</a></div>
-      </article>
-      <article class="book">
-        <div class="cover photo"><img src="img/camalote.jpg" alt="Portada de Las hijas de El Camalote, también para The Camalote's Daughters" width="400" height="609" loading="lazy"></div>
-        <div class="t">The Camalote's Daughters</div>
-        <p class="meta"><span data-en="English edition of Las hijas de El Camalote.">Edición en inglés de Las hijas de El Camalote.</span> <span data-en="It expands the world of <em>Mechuacán</em> through a choral novel portraying the symbolic and emotional founding of the author's family hometown in Michoacán's Tierra Caliente. In intense, visual prose, it weaves together the voices of twenty-three women who survive amid love, faith, loss and the realities of drug trafficking, offering a poetic and socially powerful perspective.">Expande el universo de <em>Mechuacán</em> mediante una novela coral que retrata la fundación simbólica y emocional del pueblo de origen de la familia de la autora, en la Tierra Caliente de Michoacán. Con una prosa intensa y visual, entrelaza las voces de veintitrés mujeres que sobreviven entre el amor, la fe, la pérdida y las realidades del narcotráfico, ofreciendo una perspectiva poética y socialmente poderosa.</span></p>
-        <div class="actions" data-buy="camalote-en"><a class="main" href="#contacto" data-book="The Camalote's Daughters" data-en="Order from the author">Pedir a la autora</a></div>
       </article>
       <article class="book">
         <div class="cover photo"><img src="img/mechuacan.jpg" alt="Portada de Mechuacán, sus mujeres y el silencio" width="400" height="601" loading="lazy"></div>
@@ -422,8 +417,8 @@ footer a{color:var(--muted)}
 
   // where to buy each book: paste each store's link here ("" = link still pending)
   var BUY={
-    'camalote-es':{amazon:'',mercadolibre:'',tiktok:''},
-    'camalote-en':{amazon:'',mercadolibre:'',tiktok:''},
+    // en: links for the English edition (The Camalote's Daughters)
+    'camalote-es':{amazon:'',mercadolibre:'',tiktok:'', en:{amazon:'',mercadolibre:'',tiktok:''}},
     'mechuacan':  {amazon:'',mercadolibre:'',tiktok:''},
     'emprende':   {amazon:'',mercadolibre:'',tiktok:''},
     'libro5':     {amazon:'',mercadolibre:'',tiktok:''}
@@ -441,6 +436,17 @@ footer a{color:var(--muted)}
       else{a.href='#contacto';a.title='Enlace pendiente';a.dataset.book=box.querySelector('[data-book]')?box.querySelector('[data-book]').dataset.book:'';}
       box.insertBefore(a,first);
     });
+    if(links.en){
+      var l2=document.createElement('span'); l2.className='lbl'; l2.textContent='Edición en inglés'; l2.setAttribute('data-en','English edition');
+      box.appendChild(l2);
+      STORES.forEach(function(s){
+        var a=document.createElement('a'), url=links.en[s[0]];
+        a.className='store'+(url?'':' pending'); a.innerHTML=BAG+'<span>'+s[1]+'</span>';
+        if(url){a.href=url;a.target='_blank';a.rel='noopener';}
+        else{a.href='#contacto';a.title='Enlace pendiente';a.dataset.book="The Camalote's Daughters";}
+        box.appendChild(a);
+      });
+    }
   });
   // language toggle: Spanish is in the page, English in data-en
   var KEY='ec-lang', lang='es';
