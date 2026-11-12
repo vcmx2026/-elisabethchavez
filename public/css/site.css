@@ -366,3 +366,25 @@ details.reveal > div{padding-top:18px}
 .ficha dd{margin:0;color:var(--ink);font-weight:500}
 .ficha dd.tbd{color:#A39788;font-style:italic;font-weight:400}
 @media (max-width:640px){.ficha dl{grid-template-columns:1fr}}
+
+.socials{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:6px}
+.soc{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:22px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--ink);min-height:210px;transition:transform .3s ease,box-shadow .3s ease}
+a.soc:hover{transform:translateY(-4px);box-shadow:0 26px 40px -32px rgba(31,44,61,.55)}
+.soc .net{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1}
+.soc p{margin:0;color:var(--muted);font-size:15px}
+.soc .more{margin-top:auto}
+.soc.soon{background:transparent;border-style:dashed}
+.soc.soon .net{color:var(--muted)}
+.tag-soon{margin-top:auto;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.press{padding:24px 0 96px}
+.press-card{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;background:var(--slate);color:#F3EFE6;border-radius:28px;padding:48px}
+.press-card .eyebrow{color:var(--cream)}
+.press-card h2{font-size:clamp(30px,3.6vw,42px)}
+.press-card p{color:#D9E0D9;margin:0 0 24px}
+.press-card .btn.solid{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.press-list{border-left:1px solid rgba(255,255,255,.18);padding-left:36px}
+.press-list h3{font-size:26px;margin-bottom:10px}
+.press-list .empty{font-style:italic;font-size:15px}
+.foot-social a{margin-left:12px}
+@media (max-width:880px){.socials{grid-template-columns:repeat(2,minmax(0,1fr))}.press-card{grid-template-columns:1fr;padding:32px;gap:28px}.press-list{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:24px}}
+@media (max-width:480px){.socials{grid-template-columns:1fr}.soc{min-height:0}}

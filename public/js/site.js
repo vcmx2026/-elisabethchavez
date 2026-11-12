@@ -78,7 +78,7 @@
   if(form){
     var q=new URLSearchParams(location.search), topic=$('f-topic'), msg=$('f-msg');
     if(q.get('libro')){topic.selectedIndex=0; msg.value=(lang==='en'?'Hi Elisabeth, I would like to order: ':'Hola Elisabeth, me gustaría pedir: ')+q.get('libro');}
-    if(q.get('servicio')){topic.selectedIndex=q.get('servicio')==='revision'?5:4;}
+    if(q.get('servicio')){topic.selectedIndex={revision:5,asesoria:4,prensa:1}[q.get('servicio')]||0;}
     form.addEventListener('submit',function(e){
       e.preventDefault();
       var n=$('f-name').value.trim(), m=$('f-email').value.trim();
