@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-title-en="Elisabeth Chávez Rivera · Author">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elisabeth Chávez Rivera · Autora</title>
-<meta name="description" content="Elisabeth Chávez Rivera, autora de Las hijas de El Camalote y Mechuacán, sus mujeres y el silencio. Libros, agenda literaria 2026 y asesoría para escritores independientes. Todos Santos, Baja California Sur.">
+<meta name="description" content="Elisabeth Chávez Rivera, autora de Las hijas de El Camalote, Mechuacán, sus mujeres y el silencio y Emprende y fracasa como niña. Todos Santos, Baja California Sur.">
 <meta property="og:title" content="Elisabeth Chávez Rivera · Autora">
-<meta property="og:description" content="Libros, agenda literaria y asesoría para escritores independientes.">
+<meta property="og:description" content="Elisabeth Chávez Rivera, autora de Las hijas de El Camalote, Mechuacán, sus mujeres y el silencio y Emprende y fracasa como niña. Todos Santos, Baja California Sur.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://elisabethchavez.com/">
 <meta property="og:image" content="https://elisabethchavez.com/img/elisabeth-retrato.jpg">
@@ -15,482 +15,83 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Elisabeth Chávez Rivera","url":"https://elisabethchavez.com/","jobTitle":"Escritora y emprendedora","homeLocation":"Todos Santos, Baja California Sur, México","worksFor":{"@type":"Organization","name":"SEN Group Editorial"}}
 </script>
-<style>
-:root{
-  --paper:#F5EFE7; --card:#FFFCF8; --ink:#1F2C3D; --muted:#525D6B; --line:#E2D6C6;
-  --terra:#2C4A6E; --terra-ink:#FFFFFF; --green:#3A3D42; --sand:#EADBC8; --gold:#6A8BAF;
-  --cream:#E8D8C4; --blue:#6A8BAF; --slate:#3A3C40;
-  --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --sans:Karla, "Segoe UI", system-ui, sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:var(--terra)}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin:0 0 10px}
-h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;margin:0}
-h2{font-size:clamp(34px,5vw,52px);margin-bottom:14px}
-.lede{color:var(--muted);max-width:640px;margin:0}
-section{padding:88px 0}
-.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:15px;font-weight:700;padding:13px 22px;border-radius:999px;text-decoration:none;border:1.5px solid var(--terra);cursor:pointer;min-height:46px}
-.btn.solid{background:var(--terra);color:var(--terra-ink)}
-.btn.ghost{background:transparent;color:var(--terra)}
-.btn:hover{filter:brightness(.95)}
-:focus-visible{outline:2px solid var(--green);outline-offset:3px}
-
-/* nav */
-.top{position:sticky;top:0;z-index:20;background:rgba(247,243,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:24px;font-weight:700;text-decoration:none;color:var(--ink);white-space:nowrap}
-.bmark{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 60% 45%,#5a5e66,var(--slate) 70%);display:grid;place-items:center;flex-shrink:0}
-.bmark .mark{width:30px;height:30px}
-.brand small{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-left:8px}
-nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0;flex-wrap:wrap}
-nav a{display:block;padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--ink);font-size:15px;font-weight:500}
-nav a:hover{background:var(--sand)}
-.lang{font:inherit;font-size:13px;font-weight:700;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:7px 12px;cursor:pointer;min-height:38px}
-.menu-btn{display:none}
-@media (max-width:880px){
-  nav ul{display:none;position:absolute;left:0;right:0;top:68px;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;padding:10px 16px 16px}
-  nav.open ul{display:flex}
-  .menu-btn{display:inline-flex;font:inherit;font-size:14px;font-weight:700;border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:7px 14px;min-height:38px;cursor:pointer;color:var(--ink)}
-  .brand small{display:none}
-  .brand{font-size:20px;gap:8px}.bmark{width:32px;height:32px}.bmark .mark{width:25px;height:25px}
-  .top .wrap{padding:0 16px;gap:8px}
-}
-
-/* hero */
-.hero{padding:72px 0 64px;position:relative;overflow:hidden;background:radial-gradient(60% 70% at 85% 40%,rgba(232,216,196,.9),rgba(245,239,231,0) 70%)}
-.hero .bigmark{position:absolute;right:-60px;top:20px;width:520px;opacity:.5;pointer-events:none}
-.hero .bigmark path:first-child,.hero .bigmark circle{fill:#fff}
-.hero .wrap{position:relative}
-@media (max-width:880px){.hero .bigmark{width:340px;right:-120px;top:auto;bottom:-40px;opacity:.35}}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}
-.hero h1{font-size:clamp(48px,7.5vw,92px);letter-spacing:-.01em}
-.hero h1.firma{margin:0}
-.hero h1.firma img{width:100%;max-width:640px;height:auto;margin-left:-8px}
-.hero h1 em{font-style:italic;color:var(--blue);font-weight:500}
-.hero p.sub{font-size:20px;color:var(--muted);max-width:560px;margin:22px 0 30px}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
-.next{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:0 18px 40px -28px rgba(43,38,34,.35)}
-.next .eyebrow{color:var(--blue)}
-.next h3{font-size:30px;margin:4px 0 8px}
-.next p{margin:0;color:var(--muted);font-size:15px}
-.next .when{display:flex;gap:14px;align-items:center;margin:14px 0 18px}
-.datebox{flex-shrink:0;width:70px;height:74px;border-radius:16px;background:var(--terra);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
-.datebox b{font-family:var(--serif);font-size:34px}
-.datebox span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
-@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:36px}}
-
-/* books */
-#libros{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.books{display:grid;grid-template-columns:repeat(3,minmax(0,300px));justify-content:space-between;gap:40px;margin-top:40px}
-@media (max-width:900px){.books{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}}
-@media (max-width:560px){.books{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.cover{padding:14px 12px}.cover h3{font-size:19px}.book .t{font-size:19px}}
-.book{display:flex;flex-direction:column;gap:12px}
-.cover{aspect-ratio:2/3;border-radius:6px 14px 14px 6px;padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:inset 6px 0 0 rgba(0,0,0,.14),0 22px 30px -22px rgba(43,38,34,.6);position:relative;overflow:hidden}
-.cover h3{font-size:25px;line-height:1.02}
-.cover small{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
-.cover svg{position:absolute;right:-20px;bottom:-12px;width:150px;opacity:.22}
-.cover.photo{padding:0;background:#fff;border:1px solid var(--line)}.cover.photo img{width:100%;height:100%;object-fit:cover}
-.c1{background:#2C4A6E}.c2{background:#3A3C40}.c3{background:#6A8BAF}.c4{background:#E8D8C4;color:#1F2C3D}.c4 svg{stroke:#2C4A6E;opacity:.3}.c5{background:#1F2C3D}
-.book .meta{font-size:14px;color:var(--muted);margin:0}
-.book .t{font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.1}
-.book .actions{display:flex;flex-wrap:wrap;gap:8px}
-.book .actions a{font-size:13px;font-weight:700;padding:8px 13px;border-radius:999px;border:1.5px solid var(--line);text-decoration:none;color:var(--ink);background:var(--paper)}
-.book .actions a.main{border-color:var(--terra);color:var(--terra)}
-.book .actions a.store{display:inline-flex;align-items:center;gap:6px}
-.book .actions a.store svg{width:14px;height:14px}
-.book .actions a.pending{border-style:dashed;color:var(--muted)}
-.book .actions .lbl{flex-basis:100%;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
-.todo{background:#FCEFD9;border-radius:4px;padding:0 3px}
-
-/* about */
-.about .wrap{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:64px;align-items:start}
-.portrait{position:sticky;top:96px}
-.portrait img{width:100%;height:auto;border-radius:4px;box-shadow:0 24px 40px -30px rgba(31,44,61,.5)}
-.portrait figcaption{font-size:14px;color:var(--muted);text-align:center;margin-top:12px;font-style:italic}
-.bio p{margin:0 0 18px}
-.wave{display:block;width:220px;margin:-4px 0 20px}
-.bio-sub{font-size:28px;margin:34px 0 14px;padding-top:24px;border-top:1px solid var(--line)}
-.bio p.first{font-family:var(--serif);font-size:25px;line-height:1.35;color:var(--ink)}
-.timeline{list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.timeline li{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
-.timeline b{font-family:var(--serif);font-size:24px;color:var(--blue);display:block;line-height:1}
-.timeline span{font-size:14.5px;color:var(--muted)}
-@media (max-width:880px){.about .wrap{grid-template-columns:1fr;gap:36px}.portrait{position:static;max-width:340px;margin:0 auto}.timeline{grid-template-columns:1fr}}
-
-/* agenda */
-#agenda{background:radial-gradient(55% 60% at 88% 18%,rgba(232,216,196,.22),rgba(58,60,64,0) 70%),var(--slate);color:#F3EFE6}
-#agenda .eyebrow{color:var(--cream)}
-#agenda .lede{color:#D9E0D9}
-.events{list-style:none;margin:40px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
-.ev{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:22px;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:18px 22px}
-.ev .d{font-family:var(--serif);line-height:1;text-align:center}
-.ev .d b{display:block;font-size:40px;color:var(--cream)}
-.ev .d span{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.ev h3{font-size:25px;margin-bottom:4px}
-.ev p{margin:0;font-size:15px;color:#D9E0D9}
-.tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--cream);color:#2B2622;white-space:nowrap}
-.ev.past{opacity:.6}
-.ev.past .tag{background:transparent;color:#F3EFE6;border:1px solid rgba(255,255,255,.4)}
-.past-title{font-family:var(--serif);font-size:26px;margin:44px 0 0}
-@media (max-width:700px){.ev{grid-template-columns:70px minmax(0,1fr)}.ev .tag{grid-column:2;justify-self:start}.ev .d b{font-size:32px}}
-.clubs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:40px}
-.clubs div{border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:18px 22px}
-.clubs h3{font-size:24px}
-.clubs p{margin:4px 0 0;font-size:15px;color:#D9E0D9}
-@media (max-width:700px){.clubs{grid-template-columns:1fr}}
-
-/* services */
-.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:40px}
-.svc{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;display:flex;flex-direction:column;gap:12px}
-.svc .num{font-family:var(--serif);font-size:56px;line-height:.8;color:var(--blue)}
-.svc h3{font-size:32px}
-.svc p{margin:0;color:var(--muted)}
-.svc ul{margin:0;padding-left:20px;color:var(--ink)}
-.svc .btn{align-self:flex-start;margin-top:auto}
-@media (max-width:760px){.services{grid-template-columns:1fr}}
-
-/* SEN Group */
-.sen{background:var(--card);color:var(--ink);padding:72px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.sen .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
-.sen img{width:100%;height:auto;max-width:420px;justify-self:center}
-.sen .eyebrow{color:var(--blue)}
-.sen p{color:var(--muted);margin:0 0 24px;max-width:480px}
-.btn.cream{background:var(--cream);color:var(--ink);border-color:var(--cream)}
-@media (max-width:880px){.sen .wrap{grid-template-columns:1fr;gap:28px}.sen img{max-width:320px}}
-#librerias{padding-top:88px}
-/* bookstores */
-.stores{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.stores span{font-family:var(--serif);font-size:24px;font-weight:600;padding:10px 22px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
-
-/* contact */
-#contacto{background:var(--sand)}
-.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:start}
-.contact form{background:var(--card);border-radius:26px;padding:28px;display:grid;gap:14px;border:1px solid var(--line)}
-.contact label{min-width:0;display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700}
-.contact input,.contact select,.contact textarea{width:100%;min-width:0;font:inherit;font-size:16px;font-weight:400;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)}
-.contact textarea{min-height:130px;resize:vertical}
-.contact .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.contact .note{font-size:13px;color:var(--muted);margin:0}
-.mail{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--terra)}
-@media (max-width:880px){.contact{grid-template-columns:minmax(0,1fr)}.mail{font-size:22px;overflow-wrap:anywhere}.contact .row{grid-template-columns:1fr}}
-
-footer{padding:36px 0;font-size:14px;color:var(--muted)}
-.imprint{display:flex;align-items:center;gap:14px;line-height:1.5}
-.imprint img{width:71px;height:auto}
-footer .wrap{align-items:center}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-footer a{color:var(--muted)}
-</style>
 </head>
-<body>
-
+<body class="">
+<a class="skip" href="#main" data-en="Skip to content">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inicio">Elisabeth Chávez<small data-en="Author">Autora</small></a>
-    <nav id="nav" aria-label="Menú principal">
-      <ul>
-        <li><a href="#libros" data-en="Books">Libros</a></li>
-        <li><a href="#sobre" data-en="About the author">Sobre la autora</a></li>
-        <li><a href="#agenda" data-en="2026 events">Agenda 2026</a></li>
-        <li><a href="#recursos" data-en="Resources">Recursos</a></li>
-        <li><a href="#contacto" data-en="Contact">Contacto</a></li>
-      </ul>
-    </nav>
+    <a class="brand" href="./">Elisabeth Chávez<small data-en="Author">Autora</small></a>
+    <nav id="nav" aria-label="Menú principal"><ul><li><a href="libros.html" data-en="Books">Libros</a></li><li><a href="autora.html" data-en="About the author">Sobre la autora</a></li><li><a href="agenda.html" data-en="2026 events">Agenda 2026</a></li><li><a href="recursos.html" data-en="Resources">Recursos</a></li><li><a class="nav-cta" href="contacto.html" data-en="Contact">Contacto</a></li></ul></nav>
     <div style="display:flex;gap:8px;align-items:center">
       <button class="lang" id="lang" type="button" aria-label="Switch to English">EN</button>
       <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="nav" data-en="Menu">Menú</button>
     </div>
   </div>
 </header>
+<main id="main">
 
-<main id="inicio">
-
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <p class="eyebrow" data-en="Writer · Businesswoman · Cultural promoter">Escritora · Empresaria · Promotora cultural</p>
-      <h1 class="firma"><img src="img/firma.svg" alt="Elisabeth Chávez Rivera, autora" width="1218" height="260"></h1>
-      <p class="sub" data-en="Stories of memory, migration and women who start over. Her voice comes from experience: building, going through loss and finding the stories that deserve to be told.">Historias de memoria, migración y mujeres que vuelven a empezar. Una voz que nace de la experiencia: construir, atravesar pérdidas y encontrar las historias que merecen ser contadas.</p>
-      <div class="ctas">
-        <a class="btn solid" href="#libros" data-en="See the books">Ver los libros</a>
-        <a class="btn ghost" href="#agenda" data-en="Upcoming presentations">Próximas presentaciones</a>
-      </div>
-    </div>
-    <aside class="next" aria-label="Próxima presentación">
-      <p class="eyebrow" data-en="Next presentation">Próxima presentación</p>
-      <div id="next-box"></div>
-      <a class="btn ghost" href="#agenda" data-en="Full 2026 calendar">Agenda completa 2026</a>
-    </aside>
-  </div>
-</section>
-
-<section id="libros">
-  <div class="wrap">
-    <p class="eyebrow" data-en="Catalog">Catálogo</p>
-    <h2 data-en="Books">Libros</h2>
-    <p class="lede" data-en="Novels and books that explore memory, migration, women's experiences and the challenges of starting a business.">Novelas y libros que exploran la memoria, la migración, las experiencias de las mujeres y los desafíos de emprender.</p>
-    <div class="books">
-      <article class="book">
-        <div class="cover photo"><img src="img/camalote.jpg" alt="Portada de Las hijas de El Camalote" width="400" height="609" loading="lazy"></div>
-        <div class="t">Las hijas de El Camalote</div>
-        <p class="meta" style="margin-top:-8px"><em data-en="Also in English: The Camalote's Daughters">También en inglés: The Camalote's Daughters</em></p>
-        <p class="meta" data-en="It expands the world of <em>Mechuacán</em> through a choral novel portraying the symbolic and emotional founding of the author's family hometown in Michoacán's Tierra Caliente. In intense, visual prose, it weaves together the voices of twenty-three women who survive amid love, faith, loss and the realities of drug trafficking, offering a poetic and socially powerful perspective.">Expande el universo de <em>Mechuacán</em> mediante una novela coral que retrata la fundación simbólica y emocional del pueblo de origen de la familia de la autora, en la Tierra Caliente de Michoacán. Con una prosa intensa y visual, entrelaza las voces de veintitrés mujeres que sobreviven entre el amor, la fe, la pérdida y las realidades del narcotráfico, ofreciendo una perspectiva poética y socialmente poderosa.</p>
-        <div class="actions" data-buy="camalote-es"><a class="main" href="#contacto" data-book="Las hijas de El Camalote" data-en="Order from the author">Pedir a la autora</a></div>
-      </article>
-      <article class="book">
-        <div class="cover photo"><img src="img/mechuacan.jpg" alt="Portada de Mechuacán, sus mujeres y el silencio" width="600" height="900" loading="lazy"></div>
-        <div class="t">Mechuacán, sus mujeres y el silencio</div>
-        <p class="meta" style="margin-top:-8px"><em data-en="Also in English: Michoacán: The Women Behind the Silence">También en inglés: Michoacán: The Women Behind the Silence</em></p>
-        <p class="meta" data-en="The author recovers her own family history and that of generations marked by displacement and the structures of silence in rural communities. The book stands as an act of historical repair, using words to name what remained hidden.">La autora rescata su propia historia familiar y la de generaciones marcadas por el desplazamiento y las estructuras de silencio de las comunidades rurales. La obra se erige como un acto de reparación histórica, utilizando la palabra para nombrar aquello que permaneció oculto.</p>
-        <div class="actions" data-buy="mechuacan"><a class="main" href="#contacto" data-book="Mechuacán, sus mujeres y el silencio" data-en="Order from the author">Pedir a la autora</a></div>
-      </article>
-      <article class="book">
-        <div class="cover photo"><img src="img/emprende.jpg" alt="Portada de Emprende y fracasa como niña: de cómo construir un negocio a sostenerte en su caída" width="600" height="957" loading="lazy"></div>
-        <div class="t">Emprende y fracasa como niña</div>
-        <p class="meta" data-en="An autobiographical story about women's entrepreneurship, failure and the ability to reinvent yourself. With an honest narrative that doesn't romanticize success, Elisabeth shares her experience as a businesswoman and mother, from building successful businesses to facing a scam. The book combines personal experiences, reflections and practical tools, including a guide and checklists to start your own business. An invitation to question success, lose the fear of failure and discover that starting over is also moving forward.">Una historia autobiográfica sobre el emprendimiento femenino, el fracaso y la capacidad de reinventarse. Con una narrativa honesta y sin romantizar el éxito, Elisabeth comparte su experiencia como empresaria y madre, desde la creación de negocios exitosos hasta enfrentar una estafa. La obra combina vivencias personales, reflexiones y herramientas prácticas, incluyendo una guía y listas de verificación para comenzar a emprender. Una invitación a cuestionar el éxito, perder el miedo al fracaso y descubrir que empezar de nuevo también es avanzar.</p>
-        <div class="actions" data-buy="emprende"><a class="main" href="#contacto" data-book="Emprende y fracasa como niña" data-en="Order from the author">Pedir a la autora</a></div>
-      </article>
+<section class="home-hero"><div class="wrap">
+  <div>
+    <p class="eyebrow" data-en="Writer · Businesswoman · Cultural promoter">Escritora · Empresaria · Promotora cultural</p>
+    <h1 class="firma"><img src="img/firma.svg" alt="Elisabeth Chávez Rivera, autora" width="1218" height="260"></h1>
+    <p class="sub" data-en="Stories of memory, migration and women who start over. A voice born from experience: building, going through loss and finding the stories that deserve to be told.">Historias de memoria, migración y mujeres que vuelven a empezar. Una voz que nace de la experiencia: construir, atravesar pérdidas y encontrar las historias que merecen ser contadas.</p>
+    <div class="ctas">
+      <a class="btn solid" href="libros.html" data-en="Discover the books">Descubre los libros</a>
+      <a class="btn ghost" href="autora.html" data-en="Meet the author">Conoce a la autora</a>
     </div>
   </div>
-</section>
+  <figure><img src="img/elisabeth-retrato.jpg" alt="Retrato de Elisabeth Chávez Rivera en su estudio" width="900" height="1260"></figure>
+</div></section>
 
-<section id="sobre" class="about">
-  <div class="wrap">
-    <figure class="portrait">
-      <img src="img/elisabeth-retrato.jpg" alt="Retrato de Elisabeth Chávez Rivera en su estudio, con traje negro, junto a un librero y una pintura de nopales" width="900" height="1260">
-      <figcaption>Elisabeth Chávez Rivera</figcaption>
-    </figure>
-    <div class="bio">
-      <p class="eyebrow" data-en="Writer, businesswoman and cultural promoter">Escritora, empresaria y promotora cultural</p>
-      <h2 data-en="About the author">Sobre la autora</h2>
-      <svg class="wave" viewBox="0 0 220 24" aria-hidden="true"><path d="M2 14c30-12 60 8 92 0s60-12 86-4" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round"/><circle cx="204" cy="10" r="6" fill="var(--cream)"/></svg>
-      <p class="first" data-en="&lt;em&gt;Mechuacán, sus mujeres y el silencio&lt;/em&gt; and &lt;em&gt;Las hijas de El Camalote&lt;/em&gt; establish the voice of Elisabeth Chávez Rivera, an author originally from Michoacán, with more than a decade leading community, culinary and social entrepreneurship projects in Todos Santos."><em>Mechuacán, sus mujeres y el silencio</em> y <em>Las hijas de El Camalote</em> consolidan la voz de Elisabeth Chávez Rivera, autora originaria de Michoacán, con una trayectoria de más de una década liderando proyectos comunitarios, gastronómicos y de emprendimiento social en Todos Santos.</p>
-      <p data-en="Elisabeth has built a literary voice closely tied to human experience. Her writing dwells on the stories of women shaped by migration, violence and resilience, born from close observation of family life in rural Mexico, where oral memory lives alongside a sensibility close to Latin American magical realism.">Elisabeth ha construido una propuesta literaria íntimamente ligada a la experiencia humana. Su escritura se detiene en las historias de mujeres atravesadas por la migración, la violencia y la resiliencia, y nace de la observación atenta de las dinámicas familiares del México profundo, donde conviven la memoria oral y una sensibilidad cercana al realismo mágico latinoamericano.</p>
-      <p data-en="Her work has been presented at literary gatherings and cultural venues in Baja California Sur and Colima, at FILIP 2026 in Puebla and FENALEM 2026 in Querétaro, and is part of the author program of FIL Guadalajara 2026. Her books are available on Amazon and in bookstores in Baja California Sur and Puebla, while she continues to develop projects that preserve collective memory and bring visibility to the stories of Mexican women and women entrepreneurs.">Su trabajo se ha presentado en encuentros literarios y espacios culturales de Baja California Sur y Colima, en la FILIP 2026 de Puebla y en FENALEM 2026 en Querétaro, y forma parte del programa de autores de la FIL Guadalajara 2026. Su obra está disponible en Amazon y en librerías de Baja California Sur y Puebla, mientras continúa desarrollando proyectos para preservar la memoria colectiva y visibilizar las historias de las mujeres mexicanas y de las emprendedoras.</p>
-      <h3 class="bio-sub" data-en="Career &amp; biography">Trayectoria y biografía</h3>
-      <p data-en="An entrepreneur since the age of six, Elisabeth Chávez Rivera has built a career where business, art, writing and social commitment come together.">Emprendedora desde los seis años, Elisabeth Chávez Rivera ha construido una trayectoria en la que convergen los negocios, el arte, la escritura y el compromiso social.</p>
-      <p data-en="Originally from Michoacán and now based in Todos Santos, Baja California Sur, she has found in creation a way to transform her experiences and bring new projects to life.">Originaria de Michoacán y radicada en Todos Santos, Baja California Sur, ha encontrado en la creación una forma de transformar sus experiencias y dar vida a nuevos proyectos.</p>
-      <p data-en="Her professional career was built in leadership roles at Soriana (1999–2006), C&amp;A (2006–2011) and Financiera Independencia (2011–2012), stages that strengthened her experience in team leadership, administration and business operations.">Su carrera profesional se consolidó en puestos de liderazgo en Soriana, de 1999 a 2006; en C&amp;A, de 2006 a 2011; y en Financiera Independencia, de 2011 a 2012. Estas etapas fortalecieron su experiencia en dirección de equipos, administración y operación de negocios.</p>
-      <p data-en="At the same time, she developed her work as a visual artist. In 2010 she presented her first exhibition at Zentralia Colima and, in 2013, took part in the Todos Santos Art Festival, becoming part of the community's cultural life.">En paralelo, desarrolló su faceta como artista plástica. En 2010 presentó su primera exposición en Zentralia Colima y, en 2013, participó en el Festival de Arte de Todos Santos, integrándose a la vida cultural de la comunidad.</p>
-      <p data-en="In 2013 she founded Chávez Catering and, in 2018, Servicios Globales Twins. In 2020 she expanded her work with the non-profit Platos con Amor and the restaurant Shakti Bowl. Each initiative reflects a part of her calling: hospitality, service, food and community support.">En 2013 fundó Chávez Catering y, en 2018, Servicios Globales Twins. En 2020 amplió su labor con la creación de la asociación civil Platos con Amor y el restaurante Shakti Bowl. Cada iniciativa representa una vertiente de su vocación: la hospitalidad, el servicio, la alimentación y el apoyo a la comunidad.</p>
-      <p data-en="Writing opened a new space in her path. She is the author of Mechuacán, sus mujeres y el silencio, Las hijas del Camalote and Emprende y fracasa como niña, works that explore memory, migration, women's experiences and the challenges of entrepreneurship. In 2025 she founded SEN Group Editorial, continuing her work as an author and entrepreneur.">La escritura abrió un nuevo espacio dentro de su trayectoria. Es autora de <em>Mechuacán, sus mujeres y el silencio</em>, <em>Las hijas del Camalote</em> y <em>Emprende y fracasa como niña</em>, obras que exploran la memoria, la migración, las experiencias de las mujeres y los desafíos de emprender. En 2025 fundó SEN Group Editorial, dando continuidad a su trabajo como autora y emprendedora.</p>
-      <p data-en="Today, Elisabeth combines leading her projects with literary creation and meeting readers. Her voice comes from experience: building, going through loss, starting over and finding stories that deserve to be told.">Hoy, Elisabeth combina la dirección de sus proyectos con la creación literaria y el encuentro con lectores. Su voz nace de la experiencia: construir, atravesar pérdidas, comenzar de nuevo y encontrar historias que merecen ser contadas.</p>
-      <ul class="timeline">
-        <li><b>1999–2012</b><span data-en="Leadership at Soriana, C&amp;A and Financiera Independencia">Liderazgo en Soriana, C&amp;A y Financiera Independencia</span></li>
-        <li><b>2010 · 2013</b><span data-en="Visual artist: Zentralia Colima and Todos Santos Art Festival">Artista plástica: Zentralia Colima y Festival de Arte de Todos Santos</span></li>
-        <li><b>2013 · 2018</b><span data-en="Founds Chávez Catering and Servicios Globales Twins">Funda Chávez Catering y Servicios Globales Twins</span></li>
-        <li><b>2020</b><span data-en="Creates Platos con Amor A.C. and Shakti Bowl">Crea Platos con Amor A.C. y Shakti Bowl</span></li>
-        <li><b>2025</b><span data-en="Founds SEN Group Editorial">Funda SEN Group Editorial</span></li>
-        <li><b>2026</b><span data-en="Presentations of Las hijas de El Camalote across Mexico">Presentaciones de Las hijas de El Camalote en México</span></li>
-      </ul>
-    </div>
+<section class="nextbar" id="nextbar" style="padding:0"><div class="wrap" style="padding-top:18px;padding-bottom:18px">
+  <span class="lbl" data-en="Next presentation">Próxima presentación</span>
+  <span class="what" id="next-what"></span>
+  <a class="more" href="agenda.html" data-en="2026 calendar">Agenda 2026</a>
+</div></section>
+
+<section class="shelf"><div class="wrap">
+  <div class="shelf-head">
+    <div><p class="eyebrow" data-en="Her books">Sus libros</p><h2 data-en="Three books, one voice">Tres libros, una voz</h2></div>
+    <a class="more" href="libros.html" data-en="See catalog and where to buy">Ver catálogo y dónde comprar</a>
   </div>
-</section>
-
-<section id="agenda">
-  <div class="wrap">
-    <p class="eyebrow" data-en="Literary calendar">Agenda literaria</p>
-    <h2 data-en="2026 presentations">Presentaciones 2026</h2>
-    <p class="lede" data-en="Book presentations, fairs and reading clubs. See you there.">Presentaciones, ferias del libro y clubes de lectura. Te espero.</p>
-    <ul class="events" id="events">
-      <li class="ev" data-date="2026-12-04"><div class="d"><b>04</b><span data-en="Dec">Dic</span></div><div><h3>FIL Guadalajara</h3><p data-en="Presentation of Las hijas de El Camalote · 7:30 pm · Booth M10">Presentación de Las hijas de El Camalote · 19:30 h · Stand M10</p></div><span class="tag" data-en="Upcoming">Próxima</span></li>
-      <li class="ev" data-date="2026-12-11"><div class="d"><b>11</b><span data-en="Dec">Dic</span></div><div><h3>Librería El Tecolote</h3><p data-en="Presentation of The Camalote's Daughters, English edition">Presentación de The Camalote's Daughters, edición en inglés</p></div><span class="tag" data-en="Upcoming">Próxima</span></li>
-      <li class="ev" data-date="2026-09-11"><div class="d"><b>11</b><span data-en="Sep">Sep</span></div><div><h3>FENALEM 2026 · Querétaro</h3><p data-en="Presentation of Las hijas de El Camalote · Friday · Amazcala">Presentación de Las hijas de El Camalote · viernes · Amazcala</p></div><span class="tag" data-en="Upcoming">Próxima</span></li>
-      <li class="ev" data-date="2026-08-16"><div class="d"><b>16</b><span data-en="Aug">Ago</span></div><div><h3>FILIP · Puebla</h3><p data-en="Presentation of Las hijas de El Camalote · 11 am · Palafox Auditorium">Presentación de Las hijas de El Camalote · 11:00 h · Auditorio Palafox</p></div><span class="tag" data-en="Upcoming">Próxima</span></li>
-      <li class="ev" data-date="2026-06-26"><div class="d"><b>26</b><span data-en="Jun">Jun</span></div><div><h3>Museo Universitario de Artes Populares</h3><p data-en="Presentation of Las hijas de El Camalote · 6 pm">Presentación de Las hijas de El Camalote · 18:00 h</p></div><span class="tag" data-en="Upcoming">Próxima</span></li>
-      <li class="ev" data-date="2026-04-08"><div class="d"><b>08</b><span data-en="Apr">Abr</span></div><div><h3>Plaza Amigos · Todos Santos, B.C.S.</h3><p data-en="Presentation of Las hijas de El Camalote">Presentación de Las hijas de El Camalote</p></div><span class="tag" data-en="Upcoming">Próxima</span></li>
-    </ul>
-    <h3 class="past-title" id="past-title" hidden data-en="Already presented">Presentaciones realizadas</h3>
-    <ul class="events" id="past"></ul>
-
-    <h3 class="past-title" data-en="Reading clubs">Clubes de lectura</h3>
-    <div class="clubs">
-      <div><h3>Librería El Tecolote</h3><p data-en="November · led by Alane Brown">Noviembre · bajo la dirección de Alane Brown</p></div>
-      <div><h3 data-en="Kate Evans' Reading Club">Club de lectura de Kate Evans</h3><p data-en="Ask about upcoming dates by email.">Pregunta por las próximas fechas por correo.</p></div>
-    </div>
+  <div class="shelf-grid">
+    <a href="libros.html#camalote"><img src="img/camalote.jpg" alt="Portada de Las hijas de El Camalote" width="400" height="609" loading="lazy"><b>Las hijas de El Camalote</b><span data-en="Choral novel · also in English">Novela coral · también en inglés</span></a>
+    <a href="libros.html#mechuacan"><img src="img/mechuacan.jpg" alt="Portada de Mechuacán, sus mujeres y el silencio" width="600" height="900" loading="lazy"><b>Mechuacán, sus mujeres y el silencio</b><span data-en="Family memory · also in English">Memoria familiar · también en inglés</span></a>
+    <a href="libros.html#emprende"><img src="img/emprende.jpg" alt="Portada de Emprende y fracasa como niña" width="600" height="957" loading="lazy"><b>Emprende y fracasa como niña</b><span data-en="Autobiography · entrepreneurship">Autobiografía · emprendimiento</span></a>
   </div>
-</section>
+</div></section>
 
-<section id="recursos">
-  <div class="wrap">
-    <p class="eyebrow" data-en="Resources for independent writers">Recursos para escritores independientes</p>
-    <h2 data-en="I'll help you publish your story">Te acompaño a publicar tu historia</h2>
-    <p class="lede" data-en="From the experience of writing and publishing her own books and founding SEN Group Editorial.">Desde la experiencia de escribir y publicar sus propios libros y fundar SEN Group Editorial.</p>
-    <div class="services">
-      <article class="svc">
-        <span class="num">01</span>
-        <h3 data-en="Coaching for independent writers">Asesoría para escritores independientes</h3>
-        <p data-en="One-on-one sessions, by the hour and by appointment, to move your project forward: structure, publishing, sales and presentations.">Sesiones personalizadas, por hora y con cita, para avanzar tu proyecto: estructura, publicación, venta y presentaciones.</p>
-        <a class="btn solid" href="#contacto" data-svc="Asesoría para escritores independientes" data-en="Book a session">Agendar una sesión</a>
-      </article>
-      <article class="svc">
-        <span class="num">02</span>
-        <h3 data-en="Manuscript review">Revisión de manuscrito</h3>
-        <p data-en="A careful reading of your manuscript with clear comments so you can take it to its best version before publishing.">Lectura cuidadosa de tu manuscrito con comentarios claros para llevarlo a su mejor versión antes de publicar.</p>
-        <a class="btn solid" href="#contacto" data-svc="Revisión de manuscrito" data-en="Send my manuscript">Enviar mi manuscrito</a>
-      </article>
-    </div>
-  </div>
-</section>
+<section class="quote"><div class="wrap">
+  <p data-en="“Her voice comes from experience: building, going through loss, starting over and finding stories that deserve to be told.”">“Su voz nace de la experiencia: construir, atravesar pérdidas, comenzar de nuevo y encontrar historias que merecen ser contadas.”</p>
+  <span>Elisabeth Chávez Rivera</span>
+</div></section>
 
-<section id="sen" class="sen">
-  <div class="wrap">
-    <img src="img/sen-group-logo.webp" alt="Logotipo de SEN Group Editorial" width="709" height="603" loading="lazy">
-    <div>
-      <p class="eyebrow" data-en="Publishing house">Casa editorial</p>
-      <h2>SEN Group Editorial</h2>
-      <p data-en="Founded in 2025 by Elisabeth Chávez Rivera to continue her work as an author and entrepreneur, and to accompany other independent voices on their way to publication.">Fundada en 2025 por Elisabeth Chávez Rivera para dar continuidad a su trabajo como autora y emprendedora, y acompañar a otras voces independientes en su camino a la publicación.</p>
-      <a class="btn solid" href="#recursos" data-en="See resources">Ver recursos</a>
-    </div>
-  </div>
-</section>
-
-<section id="librerias">
-  <div class="wrap">
-    <p class="eyebrow" data-en="Where to find the books">Dónde encontrar los libros</p>
-    <h2 data-en="Bookstores">Librerías</h2>
-    <div class="stores"><span>El Tecolote</span><span>Inédita</span><span>Librería León</span><span>Centro Librero</span><span>Allende Books</span></div>
-  </div>
-</section>
-
-<section id="contacto">
-  <div class="wrap contact">
-    <div>
-      <p class="eyebrow" data-en="Contact">Contacto</p>
-      <h2 data-en="Let's talk">Escríbeme</h2>
-      <p class="lede" style="margin-bottom:22px" data-en="Presentations, interviews, reading clubs, bookstores, orders or coaching: write to me and I'll get back to you personally.">Presentaciones, entrevistas, clubes de lectura, librerías, pedidos o asesorías: escríbeme y te respondo personalmente.</p>
-      <a class="mail" href="mailto:contacto@elisabethchavez.com">contacto@elisabethchavez.com</a>
-    </div>
-    <form id="form" novalidate>
-      <div class="row">
-        <label><span data-en="Name">Nombre</span><input id="f-name" type="text" autocomplete="name" required></label>
-        <label><span data-en="Email">Correo</span><input id="f-email" type="email" autocomplete="email" required></label>
-      </div>
-      <label><span data-en="Subject">Tema</span>
-        <select id="f-topic">
-          <option data-en="Order a book">Pedir un libro</option>
-          <option data-en="Presentation or interview">Presentación o entrevista</option>
-          <option data-en="Reading club">Club de lectura</option>
-          <option data-en="Bookstore">Librería</option>
-          <option data-en="Coaching for independent writers">Asesoría para escritores independientes</option>
-          <option data-en="Manuscript review">Revisión de manuscrito</option>
-          <option data-en="Other">Otro</option>
-        </select>
-      </label>
-      <label><span data-en="Message">Mensaje</span><textarea id="f-msg"></textarea></label>
-      <button class="btn solid" type="submit" style="justify-self:start" data-en="Send by email">Enviar por correo</button>
-      <p class="note" id="f-note" data-en="Your email app will open with the message ready to send.">Se abrirá tu correo con el mensaje listo para enviar.</p>
-    </form>
-  </div>
-</section>
+<section class="tiles"><div class="wrap">
+  <a class="tile" href="autora.html">
+    <p class="eyebrow" data-en="About the author">Sobre la autora</p>
+    <h3 data-en="Writer, businesswoman and cultural promoter">Escritora, empresaria y promotora cultural</h3>
+    <p data-en="Originally from Michoacán and based in Todos Santos, with more than a decade leading community, culinary and social entrepreneurship projects.">Originaria de Michoacán y radicada en Todos Santos, con más de una década liderando proyectos comunitarios, gastronómicos y de emprendimiento social.</p>
+    <span class="more" data-en="Read her story">Leer su historia</span>
+  </a>
+  <a class="tile" href="recursos.html">
+    <p class="eyebrow" data-en="For independent writers">Para escritores independientes</p>
+    <h3 data-en="I'll help you publish your story">Te acompaño a publicar tu historia</h3>
+    <p data-en="Coaching sessions and manuscript review, from the experience of publishing her own books and founding SEN Group Editorial.">Asesorías y revisión de manuscrito, desde la experiencia de publicar sus propios libros y fundar SEN Group Editorial.</p>
+    <span class="more" data-en="See resources">Ver recursos</span>
+  </a>
+</div></section>
 
 </main>
-
 <footer>
   <div class="wrap">
     <span class="imprint"><img src="img/sen-group-logo-sm.webp" alt="SEN Group Editorial" width="71" height="60"><span>© <span id="yr">2026</span> Elisabeth Chávez Rivera<br><span data-en="Published by SEN Group Editorial">Una publicación de SEN Group Editorial</span></span></span>
-    <span data-en="Todos Santos, Baja California Sur, Mexico">Todos Santos, Baja California Sur, México</span>
+    <span><a href="contacto.html">contacto@elisabethchavez.com</a> · <span data-en="Todos Santos, Baja California Sur, Mexico">Todos Santos, Baja California Sur, México</span></span>
   </div>
 </footer>
-
-<script>
-(function(){
-  // past events move to their own list automatically
-  var today=new Date(); today.setHours(0,0,0,0);
-  var up=document.getElementById('events'), past=document.getElementById('past');
-  var items=[].slice.call(up.querySelectorAll('.ev'));
-  items.sort(function(a,b){return a.dataset.date<b.dataset.date?-1:1;});
-  items.forEach(function(li){
-    var d=new Date(li.dataset.date+'T23:59:00');
-    if(d<today){li.classList.add('past');var t=li.querySelector('.tag');t.textContent='Realizada';t.setAttribute('data-en','Done');past.insertBefore(li,past.firstChild);}
-    else up.appendChild(li);
-  });
-  if(past.children.length) document.getElementById('past-title').hidden=false;
-  var first=up.querySelector('.ev'), box=document.getElementById('next-box');
-  if(first){box.innerHTML='<h3>'+first.querySelector('h3').innerHTML+'</h3><div class="when"><div class="datebox">'+first.querySelector('.d').innerHTML+'</div></div>';
-    box.querySelector('.when').appendChild(first.querySelector('div:not(.d) p').cloneNode(true));}
-  else box.closest('.next').hidden=true;
-
-
-  // where to buy each book: paste each store's link here ("" = link still pending)
-  var BUY={
-    // en: links for the English edition (The Camalote's Daughters)
-    'camalote-es':{amazon:'',mercadolibre:'',tiktok:'', en:{title:"The Camalote's Daughters",amazon:'',mercadolibre:'',tiktok:''}},
-    'mechuacan':  {amazon:'',mercadolibre:'',tiktok:'', en:{title:'Michoacán: The Women Behind the Silence',amazon:'',mercadolibre:'',tiktok:''}},
-    'emprende':   {amazon:'',mercadolibre:'',tiktok:''},
-  };
-  var STORES=[['amazon','Amazon'],['mercadolibre','Mercado Libre'],['tiktok','TikTok Shop']];
-  var BAG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>';
-  document.querySelectorAll('[data-buy]').forEach(function(box){
-    var links=BUY[box.dataset.buy]||{}, first=box.firstChild;
-    var lbl=document.createElement('span'); lbl.className='lbl'; lbl.textContent='Cómpralo en'; lbl.setAttribute('data-en','Buy it on');
-    box.insertBefore(lbl,first);
-    STORES.forEach(function(s){
-      var a=document.createElement('a'), url=links[s[0]];
-      a.className='store'+(url?'':' pending'); a.innerHTML=BAG+'<span>'+s[1]+'</span>';
-      if(url){a.href=url;a.target='_blank';a.rel='noopener';}
-      else{a.href='#contacto';a.title='Enlace pendiente';a.dataset.book=box.querySelector('[data-book]')?box.querySelector('[data-book]').dataset.book:'';}
-      box.insertBefore(a,first);
-    });
-    if(links.en){
-      var l2=document.createElement('span'); l2.className='lbl'; l2.textContent='Edición en inglés'; l2.setAttribute('data-en','English edition');
-      box.appendChild(l2);
-      STORES.forEach(function(s){
-        var a=document.createElement('a'), url=links.en[s[0]];
-        a.className='store'+(url?'':' pending'); a.innerHTML=BAG+'<span>'+s[1]+'</span>';
-        if(url){a.href=url;a.target='_blank';a.rel='noopener';}
-        else{a.href='#contacto';a.title='Enlace pendiente';a.dataset.book=links.en.title;}
-        box.appendChild(a);
-      });
-    }
-  });
-  // language toggle: Spanish is in the page, English in data-en
-  var KEY='ec-lang', lang='es';
-  try{ lang=new URLSearchParams(location.search).get('l')||localStorage.getItem(KEY)||((navigator.language||'').slice(0,2)==='en'?'en':'es'); }catch(e){}
-  function apply(l){
-    lang=l; document.documentElement.lang=l;
-    document.querySelectorAll('[data-en]').forEach(function(el){
-      if(el.dataset.es===undefined) el.dataset.es=el.innerHTML;
-      el.innerHTML = l==='en' ? el.dataset.en : el.dataset.es;
-    });
-    var b=document.getElementById('lang'); b.textContent=l==='en'?'ES':'EN'; b.setAttribute('aria-label', l==='en'?'Cambiar a español':'Switch to English');
-    try{localStorage.setItem(KEY,l);}catch(e){}
-  }
-  document.getElementById('lang').addEventListener('click',function(){apply(lang==='en'?'es':'en');});
-  if(lang==='en') apply('en');
-
-  // mobile menu
-  var nav=document.getElementById('nav'), mb=document.getElementById('menu');
-  mb.addEventListener('click',function(){var o=nav.classList.toggle('open'); mb.setAttribute('aria-expanded',o);});
-  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open'); mb.setAttribute('aria-expanded','false');}});
-
-  // buttons that prefill the form
-  var topic=document.getElementById('f-topic'), msg=document.getElementById('f-msg');
-  document.addEventListener('click',function(e){
-    var a=e.target.closest('[data-book],[data-svc]'); if(!a) return;
-    if(a.dataset.book){topic.selectedIndex=0; msg.value=(lang==='en'?'Hi Elisabeth, I would like to order: ':'Hola Elisabeth, me gustaría pedir: ')+a.dataset.book;}
-    if(a.dataset.svc){topic.selectedIndex=a.dataset.svc.indexOf('Revisión')===0?5:4;}
-  });
-
-  // form opens the visitor's email app (no data stored on the site)
-  document.getElementById('form').addEventListener('submit',function(e){
-    e.preventDefault();
-    var n=document.getElementById('f-name').value.trim(), m=document.getElementById('f-email').value.trim();
-    if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){var fn=document.getElementById('f-note');fn.textContent=lang==='en'?'Please write your name and a valid email.':'Escribe tu nombre y un correo válido.';fn.style.color='#A4502F';return;}
-    var subj=topic.options[topic.selectedIndex].text+' · '+n;
-    var body=msg.value+'\n\n'+n+' · '+m;
-    location.href='mailto:contacto@elisabethchavez.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
-  });
-  document.getElementById('yr').textContent=new Date().getFullYear();
-})();
-</script>
+<script src="js/site.js"></script>
 </body>
 </html>
