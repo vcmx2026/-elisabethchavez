@@ -34,7 +34,7 @@
 
   // where to buy each book: paste each store's link here ("" = link still pending)
   var BUY={
-    'camalote-es':{amazon:'https://a.co/d/02llrWOl',mercadolibre:'',tiktok:'', en:{title:"The Camalote's Daughters",amazon:'',mercadolibre:'',tiktok:''}},
+    'camalote-es':{amazon:'https://a.co/d/02llrWOl',mercadolibre:'https://meli.la/1YRX1Qf',tiktok:'', en:{title:"The Camalote's Daughters",amazon:'',mercadolibre:'',tiktok:''}},
     'mechuacan':  {amazon:'https://a.co/d/0aXuvbgF',mercadolibre:'https://www.mercadolibre.com.mx/mechuacan-sus-mujeres-y-el-silencio/up/MLMU5109051028?pdp_filters=item_id%3AMLM6166911532',tiktok:'', en:{title:'Michoacán: The Women Behind the Silence',amazon:'https://www.amazon.com/dp/B0G4R51GSW',mercadolibre:'',tiktok:''}},
     'emprende':   {amazon:'',mercadolibre:'',tiktok:''}
   };
