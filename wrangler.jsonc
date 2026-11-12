@@ -1,0 +1,10 @@
+{
+  // Sitio de Elisabeth Chávez Rivera (elisabethchavez.com). Cloudflare lo publica desde GitHub en cada cambio.
+  "name": "elisabethchavez",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": "./public", "not_found_handling": "404-page" },
+  "routes": [
+    { "pattern": "elisabethchavez.com", "custom_domain": true },
+    { "pattern": "www.elisabethchavez.com", "custom_domain": true }
+  ]
+}
