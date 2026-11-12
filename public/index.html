@@ -156,11 +156,11 @@ nav a:hover{background:var(--sand)}
 @media (max-width:760px){.services{grid-template-columns:1fr}}
 
 /* SEN Group */
-.sen{background:#383838;color:#F3EFE6;padding:72px 0}
+.sen{background:var(--card);color:var(--ink);padding:72px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .sen .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
-.sen img{width:100%;height:auto;max-width:460px;justify-self:center}
-.sen .eyebrow{color:var(--cream)}
-.sen p{color:#D8DCE2;margin:0 0 24px;max-width:480px}
+.sen img{width:100%;height:auto;max-width:420px;justify-self:center}
+.sen .eyebrow{color:var(--blue)}
+.sen p{color:var(--muted);margin:0 0 24px;max-width:480px}
 .btn.cream{background:var(--cream);color:var(--ink);border-color:var(--cream)}
 @media (max-width:880px){.sen .wrap{grid-template-columns:1fr;gap:28px}.sen img{max-width:320px}}
 #librerias{padding-top:88px}
@@ -181,6 +181,9 @@ nav a:hover{background:var(--sand)}
 @media (max-width:880px){.contact{grid-template-columns:minmax(0,1fr)}.mail{font-size:22px;overflow-wrap:anywhere}.contact .row{grid-template-columns:1fr}}
 
 footer{padding:36px 0;font-size:14px;color:var(--muted)}
+.imprint{display:flex;align-items:center;gap:14px;line-height:1.5}
+.imprint img{width:71px;height:auto}
+footer .wrap{align-items:center}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 footer a{color:var(--muted)}
 </style>
@@ -338,12 +341,12 @@ footer a{color:var(--muted)}
 
 <section id="sen" class="sen">
   <div class="wrap">
-    <img src="img/sen-group.webp" alt="Logotipo de SEN Group Editorial" width="1024" height="1024" loading="lazy">
+    <img src="img/sen-group-logo.webp" alt="Logotipo de SEN Group Editorial" width="709" height="603" loading="lazy">
     <div>
       <p class="eyebrow" data-en="Publishing house">Casa editorial</p>
       <h2>SEN Group Editorial</h2>
       <p data-en="Founded in 2025 by Elisabeth Chávez Rivera to continue her work as an author and entrepreneur, and to accompany other independent voices on their way to publication.">Fundada en 2025 por Elisabeth Chávez Rivera para dar continuidad a su trabajo como autora y emprendedora, y acompañar a otras voces independientes en su camino a la publicación.</p>
-      <a class="btn cream" href="#recursos" data-en="See resources">Ver recursos</a>
+      <a class="btn solid" href="#recursos" data-en="See resources">Ver recursos</a>
     </div>
   </div>
 </section>
@@ -391,7 +394,7 @@ footer a{color:var(--muted)}
 
 <footer>
   <div class="wrap">
-    <span style="display:flex;align-items:center;gap:10px">© <span id="yr">2026</span> Elisabeth Chávez Rivera · SEN Group Editorial</span>
+    <span class="imprint"><img src="img/sen-group-logo-sm.webp" alt="SEN Group Editorial" width="71" height="60"><span>© <span id="yr">2026</span> Elisabeth Chávez Rivera<br><span data-en="Published by SEN Group Editorial">Una publicación de SEN Group Editorial</span></span></span>
     <span data-en="Todos Santos, Baja California Sur, Mexico">Todos Santos, Baja California Sur, México</span>
   </div>
 </footer>
