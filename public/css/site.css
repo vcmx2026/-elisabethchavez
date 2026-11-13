@@ -387,6 +387,10 @@ details.reveal > div{padding-top:18px}
 .socials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:6px}
 .soc{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:22px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--ink);min-height:210px;transition:transform .3s ease,box-shadow .3s ease}
 a.soc:hover{transform:translateY(-4px);box-shadow:0 26px 40px -32px rgba(31,44,61,.55)}
+.soc .ico{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--slate);margin-bottom:6px;transition:background .3s ease,color .3s ease}
+.soc .ico svg{width:21px;height:21px}
+a.soc:hover .ico{background:var(--slate);color:var(--cream)}
+.soc.soon .ico{color:var(--muted);background:transparent}
 .soc .net{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1}
 .soc p{margin:0;color:var(--muted);font-size:15px}
 .soc .more{margin-top:auto}
