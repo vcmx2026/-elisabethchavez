@@ -6,7 +6,7 @@ SOCIAL = [
     ('TikTok', 'https://www.tiktok.com/@elisabeth.chari', 'Videos cortos sobre escritura, libros y emprendimiento.', 'Short videos about writing, books and entrepreneurship.'),
     ('Amazon', 'https://www.amazon.com.mx/stores/Elisabeth-Chavez-Rivera/author/B0FZCMRR3R', 'Perfil de autora con todos sus libros y ediciones.', 'Author page with all her books and editions.'),
     ('Mercado Libre', 'https://listado.mercadolibre.com.mx/_CustId_247005184', 'Tienda de la autora con sus libros a la venta en México.', "The author's store with her books for sale in Mexico."),
-    ('Substack', '', 'Textos, reflexiones y boletín de la autora.', "The author's writing, reflections and newsletter."),
+    ('Substack', 'https://elisabethchavez.substack.com/', 'Textos, reflexiones y boletín de la autora.', "The author's writing, reflections and newsletter."),
 ]
 
 # Brand marks from Simple Icons (CC0). Amazon and Mercado Libre are not in that set, so they get a neutral store icon.
