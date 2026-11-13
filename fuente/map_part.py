@@ -10,6 +10,7 @@ SHOPS = [
     {'n': 'Allende Books', 'c': 'La Paz, B.C.S.', 'lat': 24.1597, 'lng': -110.3139, 'q': 'Allende Books La Paz Baja California Sur'},
     {'n': 'Verba Librería', 'c': 'La Paz, B.C.S.', 'lat': 24.1580, 'lng': -110.3110, 'q': 'Verba Libreria La Paz Baja California Sur'},
     {'n': 'Librería León', 'c': 'Puebla, Pue.', 'lat': 19.0436, 'lng': -98.1983, 'q': 'Libreria Leon Puebla', 'url': 'https://maps.app.goo.gl/F52wzo7FtGjY1mWR7'},
+    {'n': 'Inédita', 'c': 'Puebla, Pue.', 'lat': 19.0352, 'lng': -98.2128, 'q': 'Libreria Inedita, Av. 33 Pte. 707, Chulavista, 72420 Puebla, Pue.', 'url': 'https://maps.app.goo.gl/GSqRd2LkfCyJNV447'},
 ]
 DIR = 'https://www.google.com/maps/dir/?api=1&destination='
 EMB = 'https://maps.google.com/maps?hl=es&z=15&output=embed&q='
@@ -17,7 +18,7 @@ def dl(name):
     s = next(x for x in SHOPS if x['n'] == name)
     return '<a href="%s" target="_blank" rel="noopener">%s</a>' % (s.get('url') or DIR + quote(s['q']), name)
 # Bookstores without an address yet: only their Google Maps link (shown under "También en").
-OTHER = [('Inédita', 'https://maps.app.goo.gl/GSqRd2LkfCyJNV447'), ('Centro Librero', 'https://maps.app.goo.gl/gpSh12hHwyFyc5z96')]
+OTHER = [('Centro Librero', 'https://maps.app.goo.gl/gpSh12hHwyFyc5z96')]
 other = ' · '.join('<a href="%s" target="_blank" rel="noopener">%s</a>' % (u, n) for n, u in OTHER)
 
 def pin(k, label, sub, dx, dy):
@@ -27,11 +28,11 @@ def pin(k, label, sub, dx, dy):
             '<text x="%.1f" y="%.1f" class="pl">%s</text><text x="%.1f" y="%.1f" class="ps">%s</text></g>') % (
         x, y, x, y, x + 8, y + dy * .15, x + dx - 8, y + dy, x + dx, y + dy + 9, label, x + dx, y + dy + 33, sub)
 
-MAP = ('<svg class="mx-map" viewBox="-10 -10 %d %d" role="img" aria-label="Mapa de México con las librerías donde se encuentran los libros: Todos Santos y La Paz (dos librerías) en Baja California Sur, y Puebla">' % (W + 20, H + 20)
+MAP = ('<svg class="mx-map" viewBox="-10 -10 %d %d" role="img" aria-label="Mapa de México con las librerías donde se encuentran los libros: Todos Santos y La Paz (dos librerías) en Baja California Sur, y Puebla (dos librerías)">' % (W + 20, H + 20)
        + '<defs><pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="1.6" fill="#6A8BAF" opacity=".35"/></pattern></defs>'
        + '<path d="%s" class="land"/><path d="%s" fill="url(#dots)"/>' % (m['country'], m['country'])
        + pin('lp', 'La Paz', 'Allende Books · Verba Librería', 110, -60) + pin('ts', 'Todos Santos', 'El Tecolote', 110, 50)
-       + pin('pu', 'Puebla', 'Librería León', 80, 60) + '</svg>')
+       + pin('pu', 'Puebla', 'Librería León · Inédita', 80, 60) + '</svg>')
 
 STORES = '''<p class="eyebrow" data-en="Where to find the books">Dónde encontrar los libros</p>
 <h2 data-en="Bookstores">Librerías</h2>
@@ -40,7 +41,7 @@ STORES = '''<p class="eyebrow" data-en="Where to find the books">Dónde encontra
   <div class="cities">
     <div class="city"><span class="st">Baja California Sur</span><h3>Todos Santos</h3><p>''' + dl('El Tecolote') + '''</p></div>
     <div class="city"><span class="st">Baja California Sur</span><h3>La Paz</h3><p>''' + dl('Allende Books') + ' · ' + dl('Verba Librería') + '''</p></div>
-    <div class="city"><span class="st">Puebla</span><h3>Puebla</h3><p>''' + dl('Librería León') + '''</p></div>
+    <div class="city"><span class="st">Puebla</span><h3>Puebla</h3><p>''' + dl('Librería León') + ' · ' + dl('Inédita') + '''</p></div>
     <div class="city other"><span class="st" data-en="Also at">También en</span><p>''' + other + '''</p></div>
   </div>
 </div>
