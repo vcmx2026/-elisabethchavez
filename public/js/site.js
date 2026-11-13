@@ -53,7 +53,7 @@
   var BUY={
     'camalote-es':{amazon:'https://a.co/d/02llrWOl',mercadolibre:'https://meli.la/1YRX1Qf',tiktok:'', en:{title:"The Camalote's Daughters",amazon:'https://a.co/d/0hVcc72T',mercadolibre:'',tiktok:''}},
     'mechuacan':  {amazon:'https://a.co/d/0aXuvbgF',mercadolibre:'https://www.mercadolibre.com.mx/mechuacan-sus-mujeres-y-el-silencio/up/MLMU5109051028?pdp_filters=item_id%3AMLM6166911532',tiktok:'', en:{title:'Michoacán: The Women Behind the Silence',amazon:'https://www.amazon.com/dp/B0G4R51GSW',mercadolibre:'',tiktok:''}},
-    'emprende':   {amazon:'',mercadolibre:'',tiktok:''}
+    'emprende':   {amazon:'https://a.co/d/0jktjajI',mercadolibre:'',tiktok:''}
   };
   var STORES=[['amazon','Amazon'],['mercadolibre','Mercado Libre'],['tiktok','TikTok Shop']];
   var BAG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>';
