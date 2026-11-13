@@ -9,7 +9,8 @@ SHOPS = [
     {'n': 'El Tecolote', 'c': 'Todos Santos, B.C.S.', 'lat': 23.4497, 'lng': -110.2256, 'q': 'Libreria El Tecolote Todos Santos Baja California Sur'},
     {'n': 'Allende Books', 'c': 'La Paz, B.C.S.', 'lat': 24.1597, 'lng': -110.3139, 'q': 'Allende Books La Paz Baja California Sur'},
     {'n': 'Verba Librería', 'c': 'La Paz, B.C.S.', 'lat': 24.1580, 'lng': -110.3110, 'q': 'Verba Libreria La Paz Baja California Sur'},
-    {'n': 'Librería León', 'c': 'Puebla, Pue.', 'lat': 19.0440, 'lng': -98.2001, 'q': 'Libreria Leon, Av. 3 Poniente 318, Centro, 72000 Puebla, Pue.', 'url': 'https://maps.app.goo.gl/F52wzo7FtGjY1mWR7'},
+    {'n': 'Librería León', 'c': 'Puebla, Pue.', 'lat': 19.0440, 'lng': -98.2001, 'q': 'Libreria Leon, Av. 3 Poniente 318, Centro, 72000 Puebla, Pue.', 'url': 'https://maps.app.goo.gl/F52wzo7FtGjY1mWR7',
+     'web': 'https://www.librerialeon.com.mx/', 'fb': 'https://www.facebook.com/LibreriaLeon'},
     {'n': 'Inédita', 'c': 'Puebla, Pue.', 'lat': 19.0352, 'lng': -98.2128, 'q': 'Libreria Inedita, Av. 33 Pte. 707, Chulavista, 72420 Puebla, Pue.', 'url': 'https://maps.app.goo.gl/GSqRd2LkfCyJNV447'},
     {'n': 'Centro Librero', 'c': 'Puebla, Pue.', 'lat': 19.0447, 'lng': -98.2003, 'q': 'Centro Librero, Av. 3 Poniente, Centro, 72000 Puebla, Pue.', 'url': 'https://maps.app.goo.gl/gpSh12hHwyFyc5z96'},
 ]
@@ -53,6 +54,7 @@ STORES = '''<p class="eyebrow" data-en="Where to find the books">Dónde encontra
     <div class="gmap-tabs" role="tablist" aria-label="Librerías">''' + ''.join('<button type="button" role="tab" data-shop="%d" aria-selected="%s">%s<small>%s</small></button>' % (i, 'true' if i == 0 else 'false', s['n'], s['c']) for i, s in enumerate(SHOPS)) + '''</div>
     <div class="gmap-frame"><a class="gmap-ph" id="gmap-ph" href="''' + 'https://www.google.com/maps/search/?api=1&query=' + quote(SHOPS[0]['q']) + '''" target="_blank" rel="noopener"><span data-en="Open map in Google Maps">Abrir mapa en Google Maps</span></a><iframe id="gmap-frame" title="Mapa de Google con la librería seleccionada" src="''' + EMB + quote(SHOPS[0]['q']) + '''" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
     <a class="btn solid" id="gmap-dir" href="''' + DIR + quote(SHOPS[0]['q']) + '''" target="_blank" rel="noopener"><span data-en="Get directions in Google Maps">Cómo llegar con Google Maps</span></a>
+    <span class="shop-links" id="gmap-links"></span>
   </div>
 </div>'''
 
@@ -99,6 +101,10 @@ CSS = '''
 .gmap-frame iframe{position:relative;z-index:1;display:block;width:100%;height:100%;border:0;filter:saturate(.75)}
 .gmap-ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:4px;background:repeating-linear-gradient(45deg,var(--card),var(--card) 12px,var(--paper) 12px,var(--paper) 24px)}
 #gmap-dir{justify-self:start}
+.gmap{grid-template-columns:auto 1fr;align-items:center}.gmap-tabs,.gmap-frame{grid-column:1/-1}
+.shop-links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px}
+.shop-links a{color:var(--terra);font-weight:600;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.near-card .shop-links{margin-top:10px}
 @media (max-width:880px){.gmap-frame{aspect-ratio:4/3}.near{padding:22px 20px}}
 @media (max-width:880px){.map-wrap{grid-template-columns:1fr;gap:24px}.mx-map .pl{font-size:40px}.mx-map .ps{font-size:26px}}
 '''
@@ -108,7 +114,16 @@ FINDJS = r'''
   var nb=$('near-btn');
   if(nb){
     var SHOPS=__SHOPS__, DIR='__DIR__', EMB='__EMB__';
+    function links(s){
+      var o=SHOPS.filter(function(x){return x.n===s.n;})[0]||{}, a=[];
+      if(o.web) a.push('<a href="'+o.web+'" target="_blank" rel="noopener">'+T('Sitio web','Website')+'</a>');
+      if(o.fb) a.push('<a href="'+o.fb+'" target="_blank" rel="noopener">Facebook</a>');
+      if(o.ig) a.push('<a href="'+o.ig+'" target="_blank" rel="noopener">Instagram</a>');
+      return a.join('');
+    }
+    var cur=0;
     function show(i){
+      cur=i; $('gmap-links').innerHTML=links(SHOPS[i]);
       document.querySelectorAll('.gmap-tabs button').forEach(function(b){b.setAttribute('aria-selected',String(+b.dataset.shop===i));});
       $('gmap-frame').src=EMB+encodeURIComponent(SHOPS[i].q); $('gmap-dir').href=SHOPS[i].url||DIR+encodeURIComponent(SHOPS[i].q); $('gmap-ph').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(SHOPS[i].q);
     }
@@ -120,7 +135,7 @@ FINDJS = r'''
       var d=s.d==null?'':'<p>'+T('A unos ','About ')+(s.d<10?s.d.toFixed(1):Math.round(s.d).toLocaleString())+' km</p>';
       return '<div class="near-card'+(best?' best':'')+'">'+(best?'<span class="tag">'+T('La más cercana','Closest to you')+'</span>':'')
         +'<h4>'+s.n+'</h4><p>'+s.c+'</p>'+d
-        +'<a class="more" target="_blank" rel="noopener" href="'+(s.url||DIR+encodeURIComponent(s.q))+'">'+T('Cómo llegar','Get directions')+'</a></div>';
+        +'<a class="more" target="_blank" rel="noopener" href="'+(s.url||DIR+encodeURIComponent(s.q))+'">'+T('Cómo llegar','Get directions')+'</a>'+(links(s)?'<div class="shop-links">'+links(s)+'</div>':'')+'</div>';
     }
     function render(){
       if(!last) return;
@@ -141,7 +156,8 @@ FINDJS = r'''
       navigator.geolocation.getCurrentPosition(function(p){nb.disabled=false;last={lat:p.coords.latitude,lng:p.coords.longitude};render();var L=SHOPS.map(function(s,i){return [km(last.lat,last.lng,s.lat,s.lng),i];}).sort(function(x,y){return x[0]-y[0];});show(L[0][1]);},
         function(){nb.disabled=false;last={err:1};render();},{enableHighAccuracy:false,timeout:12000,maximumAge:600000});
     });
-    $('lang').addEventListener('click',render);
+    $('lang').addEventListener('click',function(){render();show(cur);});
+    show(0);
   }
 '''
 

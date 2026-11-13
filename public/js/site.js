@@ -106,8 +106,17 @@
 
   var nb=$('near-btn');
   if(nb){
-    var SHOPS=[{"n": "El Tecolote", "c": "Todos Santos, B.C.S.", "lat": 23.4497, "lng": -110.2256, "q": "Libreria El Tecolote Todos Santos Baja California Sur"}, {"n": "Allende Books", "c": "La Paz, B.C.S.", "lat": 24.1597, "lng": -110.3139, "q": "Allende Books La Paz Baja California Sur"}, {"n": "Verba Librería", "c": "La Paz, B.C.S.", "lat": 24.158, "lng": -110.311, "q": "Verba Libreria La Paz Baja California Sur"}, {"n": "Librería León", "c": "Puebla, Pue.", "lat": 19.044, "lng": -98.2001, "q": "Libreria Leon, Av. 3 Poniente 318, Centro, 72000 Puebla, Pue.", "url": "https://maps.app.goo.gl/F52wzo7FtGjY1mWR7"}, {"n": "Inédita", "c": "Puebla, Pue.", "lat": 19.0352, "lng": -98.2128, "q": "Libreria Inedita, Av. 33 Pte. 707, Chulavista, 72420 Puebla, Pue.", "url": "https://maps.app.goo.gl/GSqRd2LkfCyJNV447"}, {"n": "Centro Librero", "c": "Puebla, Pue.", "lat": 19.0447, "lng": -98.2003, "q": "Centro Librero, Av. 3 Poniente, Centro, 72000 Puebla, Pue.", "url": "https://maps.app.goo.gl/gpSh12hHwyFyc5z96"}], DIR='https://www.google.com/maps/dir/?api=1&destination=', EMB='https://maps.google.com/maps?hl=es&z=15&output=embed&q=';
+    var SHOPS=[{"n": "El Tecolote", "c": "Todos Santos, B.C.S.", "lat": 23.4497, "lng": -110.2256, "q": "Libreria El Tecolote Todos Santos Baja California Sur"}, {"n": "Allende Books", "c": "La Paz, B.C.S.", "lat": 24.1597, "lng": -110.3139, "q": "Allende Books La Paz Baja California Sur"}, {"n": "Verba Librería", "c": "La Paz, B.C.S.", "lat": 24.158, "lng": -110.311, "q": "Verba Libreria La Paz Baja California Sur"}, {"n": "Librería León", "c": "Puebla, Pue.", "lat": 19.044, "lng": -98.2001, "q": "Libreria Leon, Av. 3 Poniente 318, Centro, 72000 Puebla, Pue.", "url": "https://maps.app.goo.gl/F52wzo7FtGjY1mWR7", "web": "https://www.librerialeon.com.mx/", "fb": "https://www.facebook.com/LibreriaLeon"}, {"n": "Inédita", "c": "Puebla, Pue.", "lat": 19.0352, "lng": -98.2128, "q": "Libreria Inedita, Av. 33 Pte. 707, Chulavista, 72420 Puebla, Pue.", "url": "https://maps.app.goo.gl/GSqRd2LkfCyJNV447"}, {"n": "Centro Librero", "c": "Puebla, Pue.", "lat": 19.0447, "lng": -98.2003, "q": "Centro Librero, Av. 3 Poniente, Centro, 72000 Puebla, Pue.", "url": "https://maps.app.goo.gl/gpSh12hHwyFyc5z96"}], DIR='https://www.google.com/maps/dir/?api=1&destination=', EMB='https://maps.google.com/maps?hl=es&z=15&output=embed&q=';
+    function links(s){
+      var o=SHOPS.filter(function(x){return x.n===s.n;})[0]||{}, a=[];
+      if(o.web) a.push('<a href="'+o.web+'" target="_blank" rel="noopener">'+T('Sitio web','Website')+'</a>');
+      if(o.fb) a.push('<a href="'+o.fb+'" target="_blank" rel="noopener">Facebook</a>');
+      if(o.ig) a.push('<a href="'+o.ig+'" target="_blank" rel="noopener">Instagram</a>');
+      return a.join('');
+    }
+    var cur=0;
     function show(i){
+      cur=i; $('gmap-links').innerHTML=links(SHOPS[i]);
       document.querySelectorAll('.gmap-tabs button').forEach(function(b){b.setAttribute('aria-selected',String(+b.dataset.shop===i));});
       $('gmap-frame').src=EMB+encodeURIComponent(SHOPS[i].q); $('gmap-dir').href=SHOPS[i].url||DIR+encodeURIComponent(SHOPS[i].q); $('gmap-ph').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(SHOPS[i].q);
     }
@@ -119,7 +128,7 @@
       var d=s.d==null?'':'<p>'+T('A unos ','About ')+(s.d<10?s.d.toFixed(1):Math.round(s.d).toLocaleString())+' km</p>';
       return '<div class="near-card'+(best?' best':'')+'">'+(best?'<span class="tag">'+T('La más cercana','Closest to you')+'</span>':'')
         +'<h4>'+s.n+'</h4><p>'+s.c+'</p>'+d
-        +'<a class="more" target="_blank" rel="noopener" href="'+(s.url||DIR+encodeURIComponent(s.q))+'">'+T('Cómo llegar','Get directions')+'</a></div>';
+        +'<a class="more" target="_blank" rel="noopener" href="'+(s.url||DIR+encodeURIComponent(s.q))+'">'+T('Cómo llegar','Get directions')+'</a>'+(links(s)?'<div class="shop-links">'+links(s)+'</div>':'')+'</div>';
     }
     function render(){
       if(!last) return;
@@ -140,7 +149,8 @@
       navigator.geolocation.getCurrentPosition(function(p){nb.disabled=false;last={lat:p.coords.latitude,lng:p.coords.longitude};render();var L=SHOPS.map(function(s,i){return [km(last.lat,last.lng,s.lat,s.lng),i];}).sort(function(x,y){return x[0]-y[0];});show(L[0][1]);},
         function(){nb.disabled=false;last={err:1};render();},{enableHighAccuracy:false,timeout:12000,maximumAge:600000});
     });
-    $('lang').addEventListener('click',render);
+    $('lang').addEventListener('click',function(){render();show(cur);});
+    show(0);
   }
   if($('yr')) $('yr').textContent=new Date().getFullYear();
 })();
