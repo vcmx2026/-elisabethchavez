@@ -100,7 +100,7 @@
       e.preventDefault();
       var n=$('f-name').value.trim(), m=$('f-email').value.trim();
       if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){var fn=$('f-note');fn.textContent=lang==='en'?'Please write your name and a valid email.':'Escribe tu nombre y un correo válido.';fn.style.color='#A4502F';return;}
-      location.href='mailto:contacto@elisabethchavez.com?subject='+encodeURIComponent(topic.options[topic.selectedIndex].text+' · '+n)+'&body='+encodeURIComponent(msg.value+'\n\n'+n+' · '+m);
+      location.href='mailto:info@elisabethchavez.com?subject='+encodeURIComponent(topic.options[topic.selectedIndex].text+' · '+n)+'&body='+encodeURIComponent(msg.value+'\n\n'+n+' · '+m);
     });
   }
   if($('yr')) $('yr').textContent=new Date().getFullYear();
