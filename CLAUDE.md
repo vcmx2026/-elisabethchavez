@@ -10,7 +10,7 @@ Quien te escribe suele ser **Elisabeth**, la autora, o su hija **Victoria**. Nin
 1. Edita el archivo de `fuente/` que corresponda (tabla abajo).
 2. Regenera el sitio: `python3 fuente/build.py`
 3. Revisa el resultado (abre las páginas con Playwright o, como mínimo, busca el texto nuevo en `public/`), en español y en inglés (`?l=en`), en computadora y en celular.
-4. Haz commit con un mensaje corto en español y `git push origin main`.
+4. Antes de publicar, dile en una o dos frases qué vas a cambiar y pídele que confirme. Con su "sí", haz commit con un mensaje corto en español y `git push origin main`.
 
 | Qué quiere cambiar | Dónde |
 |---|---|
