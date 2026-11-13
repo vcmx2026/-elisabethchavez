@@ -384,7 +384,7 @@ details.reveal > div{padding-top:18px}
 .ficha dd.tbd{color:#A39788;font-style:italic;font-weight:400}
 @media (max-width:640px){.ficha dl{grid-template-columns:1fr}}
 
-.socials{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:6px}
+.socials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:6px}
 .soc{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:22px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--ink);min-height:210px;transition:transform .3s ease,box-shadow .3s ease}
 a.soc:hover{transform:translateY(-4px);box-shadow:0 26px 40px -32px rgba(31,44,61,.55)}
 .soc .net{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1}
@@ -403,6 +403,5 @@ a.soc:hover{transform:translateY(-4px);box-shadow:0 26px 40px -32px rgba(31,44,6
 .press-list h3{font-size:26px;margin-bottom:10px}
 .press-list .empty{font-style:italic;font-size:15px}
 .foot-social a{margin-left:12px}
-@media (max-width:1080px){.socials{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:880px){.socials{grid-template-columns:repeat(2,minmax(0,1fr))}.press-card{grid-template-columns:1fr;padding:32px;gap:28px}.press-list{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:24px}}
 @media (max-width:480px){.socials{grid-template-columns:1fr}.soc{min-height:0}}
