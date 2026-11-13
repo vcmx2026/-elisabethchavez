@@ -103,5 +103,43 @@
       location.href='mailto:info@elisabethchavez.com?subject='+encodeURIComponent(topic.options[topic.selectedIndex].text+' · '+n)+'&body='+encodeURIComponent(msg.value+'\n\n'+n+' · '+m);
     });
   }
+
+  var nb=$('near-btn');
+  if(nb){
+    var SHOPS=[
+      {n:'El Tecolote',c:'Todos Santos, B.C.S.',lat:23.4497,lng:-110.2256,q:'Libreria El Tecolote Todos Santos Baja California Sur'},
+      {n:'Allende Books',c:'La Paz, B.C.S.',lat:24.1597,lng:-110.3139,q:'Allende Books La Paz Baja California Sur'},
+      {n:'Verba Librería',c:'La Paz, B.C.S.',lat:24.1580,lng:-110.3110,q:'Verba Libreria La Paz Baja California Sur'},
+      {n:'Librería León',c:'Puebla, Pue.',lat:19.0436,lng:-98.1983,q:'Libreria Leon Puebla'}];
+    var out=$('near-out'), last=null;
+    function km(a,b,c,d){var r=Math.PI/180,x=Math.sin((c-a)*r/2),y=Math.sin((d-b)*r/2);return 12742*Math.asin(Math.sqrt(x*x+Math.cos(a*r)*Math.cos(c*r)*y*y));}
+    function T(es,en){return lang==='en'?en:es;}
+    function card(s,best){
+      var d=s.d==null?'':'<p>'+T('A unos ','About ')+(s.d<10?s.d.toFixed(1):Math.round(s.d).toLocaleString())+' km</p>';
+      return '<div class="near-card'+(best?' best':'')+'">'+(best?'<span class="tag">'+T('La más cercana','Closest to you')+'</span>':'')
+        +'<h4>'+s.n+'</h4><p>'+s.c+'</p>'+d
+        +'<a class="more" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s.q)+'">'+T('Cómo llegar','Get directions')+'</a></div>';
+    }
+    function render(){
+      if(!last) return;
+      if(last.err){
+        out.innerHTML='<p class="near-msg">'+T('No pudimos obtener tu ubicación. Estas son todas las librerías; si ninguna te queda cerca, ','We could not get your location. These are all the bookstores; if none is near you, ')
+          +'<a href="contacto.html?libro=">'+T('pídele tu libro directamente a la autora','order your book directly from the author')+'</a>.</p><div class="near-res">'+SHOPS.map(function(s){return card({n:s.n,c:s.c,q:s.q},false);}).join('')+'</div>';
+        return;
+      }
+      var L=SHOPS.map(function(s){return {n:s.n,c:s.c,q:s.q,d:km(last.lat,last.lng,s.lat,s.lng)};}).sort(function(a,b){return a.d-b.d;});
+      var far=L[0].d>150;
+      out.innerHTML=(far?'<p class="near-msg">'+T('La librería más cercana está a más de 150 km. También puedes ','The nearest bookstore is more than 150 km away. You can also ')
+          +'<a href="contacto.html?libro=">'+T('pedirle tu libro a la autora','order your book from the author')+'</a>'+T(' o comprarlo en Amazon y Mercado Libre.',' or buy it on Amazon and Mercado Libre.')+'</p>':'')
+        +'<div class="near-res">'+L.slice(0,3).map(function(s,i){return card(s,i===0);}).join('')+'</div>';
+    }
+    nb.addEventListener('click',function(){
+      if(!navigator.geolocation){last={err:1};render();return;}
+      nb.disabled=true; out.innerHTML='<p class="near-msg">'+T('Buscando tu ubicación…','Finding your location…')+'</p>';
+      navigator.geolocation.getCurrentPosition(function(p){nb.disabled=false;last={lat:p.coords.latitude,lng:p.coords.longitude};render();},
+        function(){nb.disabled=false;last={err:1};render();},{enableHighAccuracy:false,timeout:12000,maximumAge:600000});
+    });
+    $('lang').addEventListener('click',render);
+  }
   if($('yr')) $('yr').textContent=new Date().getFullYear();
 })();
