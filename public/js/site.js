@@ -10,7 +10,12 @@
     ['2026-06-26','Museo Universitario de Artes Populares','Presentación de Las hijas de El Camalote · 18:00 h','Presentation of Las hijas de El Camalote · 6 pm'],
     ['2026-08-16','FILIP · Puebla','Presentación de Las hijas de El Camalote · 11:00 h · Auditorio Palafox','Presentation of Las hijas de El Camalote · 11 am · Palafox Auditorium'],
     ['2026-09-11','FENALEM 2026 · Querétaro','Presentación de Las hijas de El Camalote · viernes · Amazcala','Presentation of Las hijas de El Camalote · Friday · Amazcala'],
-    ['2026-12-04','FIL Guadalajara','Presentación de Las hijas de El Camalote · 19:30 h · Stand M10','Presentation of Las hijas de El Camalote · 7:30 pm · Booth M10'],
+    ['2026-12-04','FIL Guadalajara','Presentación de Las hijas de El Camalote · 19:30 h · EMXI Lecturas, Stand M10','Presentation of Las hijas de El Camalote · 7:30 pm · EMXI Lecturas, Booth M10',
+     {poster:'img/fil-guadalajara-2026.jpg', w:900, h:1118, alt:'Cartel de la presentación de Las hijas de El Camalote en la FIL Guadalajara 2026',
+      title:'FIL Guadalajara 2026', title_en:'FIL Guadalajara 2026',
+      rows:[['Libro','Book','Las hijas de El Camalote','Las hijas de El Camalote'],['Fecha','Date','Viernes 4 de diciembre · 19:30 h','Friday, December 4 · 7:30 pm'],
+            ['Lugar','Venue','EMXI Lecturas · Stand M10, Expo Guadalajara','EMXI Lecturas · Booth M10, Expo Guadalajara'],['Feria','Fair','28 de noviembre al 6 de diciembre de 2026','November 28 to December 6, 2026']],
+      link:'https://emxi.org'}],
     ['2026-12-11','Librería El Tecolote','Presentación de The Camalote\'s Daughters, edición en inglés','Presentation of The Camalote\'s Daughters, English edition']
   ];
   var today=new Date(); today.setHours(0,0,0,0);
@@ -25,6 +30,18 @@
   if($('events')){
     $('events').innerHTML=upcoming.map(function(e){return evHTML(e,false);}).join('') || '<li class="ev"><div></div><div><p data-en="New dates coming soon.">Muy pronto, nuevas fechas.</p></div></li>';
     if(past.length){$('past').innerHTML=past.map(function(e){return evHTML(e,true);}).join(''); $('past-wrap').hidden=false;}
+  }
+  function featureHTML(e,home){
+    var f=e[4];
+    return '<div class="feat"><img src="'+f.poster+'" alt="'+esc(f.alt)+'" width="'+f.w+'" height="'+f.h+'" loading="lazy">'+
+      '<div class="feat-body"><p class="eyebrow" data-en="Next presentation">Próxima presentación</p><h2 data-en="'+esc(f.title_en)+'">'+esc(f.title)+'</h2>'+
+      '<dl>'+f.rows.map(function(r){return '<div><dt data-en="'+esc(r[1])+'">'+esc(r[0])+'</dt><dd data-en="'+esc(r[3])+'">'+esc(r[2])+'</dd></div>';}).join('')+'</dl>'+
+      '<div class="ctas">'+(home?'<a class="btn solid" href="agenda.html" data-en="2026 calendar">Agenda 2026</a>':'')+
+      (f.link?'<a class="btn ghost" href="'+f.link+'" target="_blank" rel="noopener">emxi.org</a>':'')+'</div></div></div>';
+  }
+  if(upcoming.length && upcoming[0][4]){
+    if($('feature')){$('feature').innerHTML=featureHTML(upcoming[0],false);$('feature').hidden=false;}
+    if($('next-feature')){$('next-feature').querySelector('.wrap').innerHTML=featureHTML(upcoming[0],true);$('next-feature').hidden=false; if($('nextbar')) $('nextbar').remove();}
   }
   if($('nextbar')){
     if(upcoming.length){var e=upcoming[0], d=new Date(e[0]+'T12:00:00');
