@@ -9,13 +9,16 @@ SHOPS = [
     {'n': 'El Tecolote', 'c': 'Todos Santos, B.C.S.', 'lat': 23.4497, 'lng': -110.2256, 'q': 'Libreria El Tecolote Todos Santos Baja California Sur'},
     {'n': 'Allende Books', 'c': 'La Paz, B.C.S.', 'lat': 24.1597, 'lng': -110.3139, 'q': 'Allende Books La Paz Baja California Sur'},
     {'n': 'Verba Librería', 'c': 'La Paz, B.C.S.', 'lat': 24.1580, 'lng': -110.3110, 'q': 'Verba Libreria La Paz Baja California Sur'},
-    {'n': 'Librería León', 'c': 'Puebla, Pue.', 'lat': 19.0436, 'lng': -98.1983, 'q': 'Libreria Leon Puebla'},
+    {'n': 'Librería León', 'c': 'Puebla, Pue.', 'lat': 19.0436, 'lng': -98.1983, 'q': 'Libreria Leon Puebla', 'url': 'https://maps.app.goo.gl/F52wzo7FtGjY1mWR7'},
 ]
 DIR = 'https://www.google.com/maps/dir/?api=1&destination='
 EMB = 'https://maps.google.com/maps?hl=es&z=15&output=embed&q='
 def dl(name):
     s = next(x for x in SHOPS if x['n'] == name)
-    return '<a href="%s%s" target="_blank" rel="noopener">%s</a>' % (DIR, quote(s['q']), name)
+    return '<a href="%s" target="_blank" rel="noopener">%s</a>' % (s.get('url') or DIR + quote(s['q']), name)
+# Bookstores without an address yet: only their Google Maps link (shown under "También en").
+OTHER = [('Inédita', 'https://maps.app.goo.gl/GSqRd2LkfCyJNV447'), ('Centro Librero', 'https://maps.app.goo.gl/gpSh12hHwyFyc5z96')]
+other = ' · '.join('<a href="%s" target="_blank" rel="noopener">%s</a>' % (u, n) for n, u in OTHER)
 
 def pin(k, label, sub, dx, dy):
     x, y = PT[k]
@@ -38,7 +41,7 @@ STORES = '''<p class="eyebrow" data-en="Where to find the books">Dónde encontra
     <div class="city"><span class="st">Baja California Sur</span><h3>Todos Santos</h3><p>''' + dl('El Tecolote') + '''</p></div>
     <div class="city"><span class="st">Baja California Sur</span><h3>La Paz</h3><p>''' + dl('Allende Books') + ' · ' + dl('Verba Librería') + '''</p></div>
     <div class="city"><span class="st">Puebla</span><h3>Puebla</h3><p>''' + dl('Librería León') + '''</p></div>
-    <div class="city other"><span class="st" data-en="Also at">También en</span><p>Inédita · Centro Librero</p></div>
+    <div class="city other"><span class="st" data-en="Also at">También en</span><p>''' + other + '''</p></div>
   </div>
 </div>
 <div class="near">
@@ -109,7 +112,7 @@ FINDJS = r'''
     var SHOPS=__SHOPS__, DIR='__DIR__', EMB='__EMB__';
     function show(i){
       document.querySelectorAll('.gmap-tabs button').forEach(function(b){b.setAttribute('aria-selected',String(+b.dataset.shop===i));});
-      $('gmap-frame').src=EMB+encodeURIComponent(SHOPS[i].q); $('gmap-dir').href=DIR+encodeURIComponent(SHOPS[i].q); $('gmap-ph').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(SHOPS[i].q);
+      $('gmap-frame').src=EMB+encodeURIComponent(SHOPS[i].q); $('gmap-dir').href=SHOPS[i].url||DIR+encodeURIComponent(SHOPS[i].q); $('gmap-ph').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(SHOPS[i].q);
     }
     document.querySelectorAll('.gmap-tabs button').forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.shop);});});
     var out=$('near-out'), last=null;
@@ -119,16 +122,16 @@ FINDJS = r'''
       var d=s.d==null?'':'<p>'+T('A unos ','About ')+(s.d<10?s.d.toFixed(1):Math.round(s.d).toLocaleString())+' km</p>';
       return '<div class="near-card'+(best?' best':'')+'">'+(best?'<span class="tag">'+T('La más cercana','Closest to you')+'</span>':'')
         +'<h4>'+s.n+'</h4><p>'+s.c+'</p>'+d
-        +'<a class="more" target="_blank" rel="noopener" href="'+DIR+encodeURIComponent(s.q)+'">'+T('Cómo llegar','Get directions')+'</a></div>';
+        +'<a class="more" target="_blank" rel="noopener" href="'+(s.url||DIR+encodeURIComponent(s.q))+'">'+T('Cómo llegar','Get directions')+'</a></div>';
     }
     function render(){
       if(!last) return;
       if(last.err){
         out.innerHTML='<p class="near-msg">'+T('No pudimos obtener tu ubicación. Estas son todas las librerías; si ninguna te queda cerca, ','We could not get your location. These are all the bookstores; if none is near you, ')
-          +'<a href="contacto.html?libro=">'+T('pídele tu libro directamente a la autora','order your book directly from the author')+'</a>.</p><div class="near-res">'+SHOPS.map(function(s){return card({n:s.n,c:s.c,q:s.q},false);}).join('')+'</div>';
+          +'<a href="contacto.html?libro=">'+T('pídele tu libro directamente a la autora','order your book directly from the author')+'</a>.</p><div class="near-res">'+SHOPS.map(function(s){return card({n:s.n,c:s.c,q:s.q,url:s.url},false);}).join('')+'</div>';
         return;
       }
-      var L=SHOPS.map(function(s){return {n:s.n,c:s.c,q:s.q,d:km(last.lat,last.lng,s.lat,s.lng)};}).sort(function(a,b){return a.d-b.d;});
+      var L=SHOPS.map(function(s){return {n:s.n,c:s.c,q:s.q,url:s.url,d:km(last.lat,last.lng,s.lat,s.lng)};}).sort(function(a,b){return a.d-b.d;});
       var far=L[0].d>150;
       out.innerHTML=(far?'<p class="near-msg">'+T('La librería más cercana está a más de 150 km. También puedes ','The nearest bookstore is more than 150 km away. You can also ')
           +'<a href="contacto.html?libro=">'+T('pedirle tu libro a la autora','order your book from the author')+'</a>'+T(' o comprarlo en Amazon y Mercado Libre.',' or buy it on Amazon and Mercado Libre.')+'</p>':'')

@@ -106,10 +106,10 @@
 
   var nb=$('near-btn');
   if(nb){
-    var SHOPS=[{"n": "El Tecolote", "c": "Todos Santos, B.C.S.", "lat": 23.4497, "lng": -110.2256, "q": "Libreria El Tecolote Todos Santos Baja California Sur"}, {"n": "Allende Books", "c": "La Paz, B.C.S.", "lat": 24.1597, "lng": -110.3139, "q": "Allende Books La Paz Baja California Sur"}, {"n": "Verba Librería", "c": "La Paz, B.C.S.", "lat": 24.158, "lng": -110.311, "q": "Verba Libreria La Paz Baja California Sur"}, {"n": "Librería León", "c": "Puebla, Pue.", "lat": 19.0436, "lng": -98.1983, "q": "Libreria Leon Puebla"}], DIR='https://www.google.com/maps/dir/?api=1&destination=', EMB='https://maps.google.com/maps?hl=es&z=15&output=embed&q=';
+    var SHOPS=[{"n": "El Tecolote", "c": "Todos Santos, B.C.S.", "lat": 23.4497, "lng": -110.2256, "q": "Libreria El Tecolote Todos Santos Baja California Sur"}, {"n": "Allende Books", "c": "La Paz, B.C.S.", "lat": 24.1597, "lng": -110.3139, "q": "Allende Books La Paz Baja California Sur"}, {"n": "Verba Librería", "c": "La Paz, B.C.S.", "lat": 24.158, "lng": -110.311, "q": "Verba Libreria La Paz Baja California Sur"}, {"n": "Librería León", "c": "Puebla, Pue.", "lat": 19.0436, "lng": -98.1983, "q": "Libreria Leon Puebla", "url": "https://maps.app.goo.gl/F52wzo7FtGjY1mWR7"}], DIR='https://www.google.com/maps/dir/?api=1&destination=', EMB='https://maps.google.com/maps?hl=es&z=15&output=embed&q=';
     function show(i){
       document.querySelectorAll('.gmap-tabs button').forEach(function(b){b.setAttribute('aria-selected',String(+b.dataset.shop===i));});
-      $('gmap-frame').src=EMB+encodeURIComponent(SHOPS[i].q); $('gmap-dir').href=DIR+encodeURIComponent(SHOPS[i].q); $('gmap-ph').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(SHOPS[i].q);
+      $('gmap-frame').src=EMB+encodeURIComponent(SHOPS[i].q); $('gmap-dir').href=SHOPS[i].url||DIR+encodeURIComponent(SHOPS[i].q); $('gmap-ph').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(SHOPS[i].q);
     }
     document.querySelectorAll('.gmap-tabs button').forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.shop);});});
     var out=$('near-out'), last=null;
@@ -119,16 +119,16 @@
       var d=s.d==null?'':'<p>'+T('A unos ','About ')+(s.d<10?s.d.toFixed(1):Math.round(s.d).toLocaleString())+' km</p>';
       return '<div class="near-card'+(best?' best':'')+'">'+(best?'<span class="tag">'+T('La más cercana','Closest to you')+'</span>':'')
         +'<h4>'+s.n+'</h4><p>'+s.c+'</p>'+d
-        +'<a class="more" target="_blank" rel="noopener" href="'+DIR+encodeURIComponent(s.q)+'">'+T('Cómo llegar','Get directions')+'</a></div>';
+        +'<a class="more" target="_blank" rel="noopener" href="'+(s.url||DIR+encodeURIComponent(s.q))+'">'+T('Cómo llegar','Get directions')+'</a></div>';
     }
     function render(){
       if(!last) return;
       if(last.err){
         out.innerHTML='<p class="near-msg">'+T('No pudimos obtener tu ubicación. Estas son todas las librerías; si ninguna te queda cerca, ','We could not get your location. These are all the bookstores; if none is near you, ')
-          +'<a href="contacto.html?libro=">'+T('pídele tu libro directamente a la autora','order your book directly from the author')+'</a>.</p><div class="near-res">'+SHOPS.map(function(s){return card({n:s.n,c:s.c,q:s.q},false);}).join('')+'</div>';
+          +'<a href="contacto.html?libro=">'+T('pídele tu libro directamente a la autora','order your book directly from the author')+'</a>.</p><div class="near-res">'+SHOPS.map(function(s){return card({n:s.n,c:s.c,q:s.q,url:s.url},false);}).join('')+'</div>';
         return;
       }
-      var L=SHOPS.map(function(s){return {n:s.n,c:s.c,q:s.q,d:km(last.lat,last.lng,s.lat,s.lng)};}).sort(function(a,b){return a.d-b.d;});
+      var L=SHOPS.map(function(s){return {n:s.n,c:s.c,q:s.q,url:s.url,d:km(last.lat,last.lng,s.lat,s.lng)};}).sort(function(a,b){return a.d-b.d;});
       var far=L[0].d>150;
       out.innerHTML=(far?'<p class="near-msg">'+T('La librería más cercana está a más de 150 km. También puedes ','The nearest bookstore is more than 150 km away. You can also ')
           +'<a href="contacto.html?libro=">'+T('pedirle tu libro a la autora','order your book from the author')+'</a>'+T(' o comprarlo en Amazon y Mercado Libre.',' or buy it on Amazon and Mercado Libre.')+'</p>':'')
