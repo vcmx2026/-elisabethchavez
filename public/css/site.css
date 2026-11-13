@@ -334,8 +334,9 @@ details.reveal > div{padding-top:18px}
 .gmap-tabs button small{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--muted)}
 .gmap-tabs button[aria-selected="true"]{background:var(--slate);border-color:var(--slate);color:var(--cream)}
 .gmap-tabs button[aria-selected="true"] small{color:#D9E0D9}
-.gmap-frame{border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/7;background:var(--card)}
-.gmap-frame iframe{display:block;width:100%;height:100%;border:0;filter:saturate(.75)}
+.gmap-frame{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/7;background:var(--card)}
+.gmap-frame iframe{position:relative;z-index:1;display:block;width:100%;height:100%;border:0;filter:saturate(.75)}
+.gmap-ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:4px;background:repeating-linear-gradient(45deg,var(--card),var(--card) 12px,var(--paper) 12px,var(--paper) 24px)}
 #gmap-dir{justify-self:start}
 @media (max-width:880px){.gmap-frame{aspect-ratio:4/3}.near{padding:22px 20px}}
 @media (max-width:880px){.map-wrap{grid-template-columns:1fr;gap:24px}.mx-map .pl{font-size:40px}.mx-map .ps{font-size:26px}}
